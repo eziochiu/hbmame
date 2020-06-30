@@ -109,6 +109,7 @@ CPUS["SUPERFX"] = true
 CPUS["Z8"] = true
 CPUS["I8008"] = true
 CPUS["SCMP"] = true
+CPUS["MN1880"] = true
 --CPUS["MN10200"] = true
 CPUS["COSMAC"] = true
 CPUS["UNSP"] = true
@@ -633,6 +634,7 @@ MACHINES["S_SMP"] = true
 MACHINES["S3520CF"] = true
 MACHINES["S3C24XX"] = true
 MACHINES["S3C44B0"] = true
+MACHINES["SA1110"] = true
 MACHINES["SAA1043"] = true
 MACHINES["SATURN"] = true
 MACHINES["SCC68070"] = true
@@ -649,6 +651,7 @@ MACHINES["SMIOC"] = true
 MACHINES["SEGA_SCU"] = true
 MACHINES["SMPC"] = true
 MACHINES["SPG2XX"] = true
+MACHINES["SPG290"] = true
 MACHINES["STVCD"] = true
 MACHINES["SUN4C_MMU"] = true
 MACHINES["SWTPC8212"] = true
@@ -1130,6 +1133,7 @@ function linkProjects_mame_mess(_target, _subtarget)
 		"bandai",
 		"banctec",
 		"be",
+		"beehive",
 		"bitcorp",
 		"bnpo",
 		"bondwell",
@@ -1256,6 +1260,7 @@ function linkProjects_mame_mess(_target, _subtarget)
 		"nokia",
 		"northstar",
 		"novag",
+		"novation",
 		"olivetti",
 		"olympia",
 		"omnibyte",
@@ -1854,6 +1859,11 @@ files {
 	MAME_DIR .. "src/mame/machine/bebox.cpp",
 }
 
+createMESSProjects(_target, _subtarget, "beehive")
+files {
+	MAME_DIR .. "src/mame/drivers/microb.cpp",
+}
+
 createMESSProjects(_target, _subtarget, "bitcorp")
 files {
 	MAME_DIR .. "src/mame/drivers/gamate.cpp",
@@ -1990,7 +2000,6 @@ files {
 createMESSProjects(_target, _subtarget, "ccs")
 files {
 	MAME_DIR .. "src/mame/drivers/ccs2810.cpp",
-	MAME_DIR .. "src/mame/drivers/ccs300.cpp",
 }
 
 createMESSProjects(_target, _subtarget, "chessking")
@@ -2119,10 +2128,8 @@ files {
 	MAME_DIR .. "src/mame/includes/huebler.h",
 	MAME_DIR .. "src/mame/drivers/jtc.cpp",
 	MAME_DIR .. "src/mame/drivers/kramermc.cpp",
-	MAME_DIR .. "src/mame/drivers/llc.cpp",
-	MAME_DIR .. "src/mame/includes/llc.h",
-	MAME_DIR .. "src/mame/machine/llc.cpp",
-	MAME_DIR .. "src/mame/video/llc.cpp",
+	MAME_DIR .. "src/mame/drivers/llc1.cpp",
+	MAME_DIR .. "src/mame/drivers/llc2.cpp",
 	MAME_DIR .. "src/mame/drivers/nanos.cpp",
 	MAME_DIR .. "src/mame/drivers/pcm.cpp",
 	MAME_DIR .. "src/mame/drivers/vcs80.cpp",
@@ -2448,6 +2455,7 @@ files {
 
 createMESSProjects(_target, _subtarget, "hegener")
 files {
+	MAME_DIR .. "src/mame/drivers/mephisto_academy.cpp",
 	MAME_DIR .. "src/mame/drivers/mephisto_berlin.cpp",
 	MAME_DIR .. "src/mame/drivers/mephisto_brikett.cpp",
 	MAME_DIR .. "src/mame/drivers/mephisto_glasgow.cpp",
@@ -2497,6 +2505,7 @@ files {
 
 createMESSProjects(_target, _subtarget, "homelab")
 files {
+	MAME_DIR .. "src/mame/drivers/braiplus.cpp",
 	MAME_DIR .. "src/mame/drivers/homelab.cpp",
 }
 
@@ -2656,7 +2665,9 @@ files {
 	MAME_DIR .. "src/mame/drivers/kawai_k1.cpp",
 	MAME_DIR .. "src/mame/drivers/kawai_k4.cpp",
 	MAME_DIR .. "src/mame/drivers/kawai_k5.cpp",
+	MAME_DIR .. "src/mame/drivers/kawai_ksp10.cpp",
 	MAME_DIR .. "src/mame/drivers/kawai_r100.cpp",
+	MAME_DIR .. "src/mame/drivers/kawai_sx240.cpp",
 }
 
 createMESSProjects(_target, _subtarget, "kaypro")
@@ -2687,6 +2698,7 @@ files {
 	MAME_DIR .. "src/mame/drivers/korgdw8k.cpp",
 	MAME_DIR .. "src/mame/drivers/korgm1.cpp",
 	MAME_DIR .. "src/mame/drivers/korgz3.cpp",
+	MAME_DIR .. "src/mame/drivers/microkorg.cpp",
 	MAME_DIR .. "src/mame/drivers/poly800.cpp",
 	MAME_DIR .. "src/mame/drivers/polysix.cpp",
 }
@@ -3077,6 +3089,12 @@ files {
 	MAME_DIR .. "src/mame/drivers/novag_savant.cpp",
 	MAME_DIR .. "src/mame/drivers/novag_sexpert.cpp",
 	MAME_DIR .. "src/mame/drivers/novag_supremo.cpp",
+}
+
+createMESSProjects(_target, _subtarget, "novation")
+files {
+	MAME_DIR .. "src/mame/drivers/basssta.cpp",
+	MAME_DIR .. "src/mame/drivers/drumsta.cpp",
 }
 
 createMESSProjects(_target, _subtarget, "olivetti")
@@ -3962,6 +3980,10 @@ files {
 	MAME_DIR .. "src/mame/drivers/spg2xx_smarttv.cpp",
 	MAME_DIR .. "src/mame/includes/spg2xx.h",
 	MAME_DIR .. "src/mame/drivers/spg29x.cpp",
+	MAME_DIR .. "src/mame/machine/hyperscan_card.cpp",
+	MAME_DIR .. "src/mame/machine/hyperscan_card.h",
+	MAME_DIR .. "src/mame/machine/hyperscan_ctrl.cpp",
+	MAME_DIR .. "src/mame/machine/hyperscan_ctrl.h",
 	MAME_DIR .. "src/mame/drivers/spg29x_lexibook_jg7425.cpp",
 	MAME_DIR .. "src/mame/drivers/generalplus_gpl16250.cpp",
 	MAME_DIR .. "src/mame/drivers/generalplus_gpl16250_rom.cpp",
@@ -4024,7 +4046,6 @@ files {
 	MAME_DIR .. "src/mame/video/gic.cpp",
 	MAME_DIR .. "src/mame/video/gic.h",
 }
-
 
 createMESSProjects(_target, _subtarget, "unisys")
 files {
@@ -4248,7 +4269,6 @@ files {
 	MAME_DIR .. "src/mame/includes/aussiebyte.h",
 	MAME_DIR .. "src/mame/video/aussiebyte.cpp",
 	MAME_DIR .. "src/mame/drivers/ax20.cpp",
-	MAME_DIR .. "src/mame/drivers/beehive.cpp",
 	MAME_DIR .. "src/mame/drivers/binbug.cpp",
 	MAME_DIR .. "src/mame/drivers/bert.cpp",
 	MAME_DIR .. "src/mame/drivers/besta.cpp",
@@ -4271,6 +4291,7 @@ files {
 	MAME_DIR .. "src/mame/drivers/cit1500.cpp",
 	MAME_DIR .. "src/mame/drivers/clxvme186.cpp",
 	MAME_DIR .. "src/mame/drivers/codata.cpp",
+	MAME_DIR .. "src/mame/drivers/consola_emt.cpp",
 	MAME_DIR .. "src/mame/drivers/controlid.cpp",
 	MAME_DIR .. "src/mame/drivers/cortex.cpp",
 	MAME_DIR .. "src/mame/drivers/cosmicos.cpp",
@@ -4278,7 +4299,7 @@ files {
 	MAME_DIR .. "src/mame/drivers/cp1.cpp",
 	MAME_DIR .. "src/mame/drivers/cxhumax.cpp",
 	MAME_DIR .. "src/mame/includes/cxhumax.h",
-	MAME_DIR .. "src/mame/drivers/czk80.cpp",
+	MAME_DIR .. "src/mame/drivers/ckz80.cpp",
 	MAME_DIR .. "src/mame/drivers/d400.cpp",
 	MAME_DIR .. "src/mame/drivers/d6800.cpp",
 	MAME_DIR .. "src/mame/drivers/d6809.cpp",
@@ -4305,7 +4326,6 @@ files {
 	MAME_DIR .. "src/mame/drivers/epic14e.cpp",
 	MAME_DIR .. "src/mame/drivers/esprit.cpp",
 	MAME_DIR .. "src/mame/drivers/eti660.cpp",
-	MAME_DIR .. "src/mame/includes/eti660.h",
 	MAME_DIR .. "src/mame/drivers/eurit.cpp",
 	MAME_DIR .. "src/mame/drivers/eurocom2.cpp",
 	MAME_DIR .. "src/mame/drivers/excali64.cpp",
@@ -4321,6 +4341,7 @@ files {
 	MAME_DIR .. "src/mame/drivers/gameking.cpp",
 	MAME_DIR .. "src/mame/drivers/gigatron.cpp",
 	MAME_DIR .. "src/mame/drivers/gimix.cpp",
+	MAME_DIR .. "src/mame/drivers/gnat10.cpp",
 	MAME_DIR .. "src/mame/drivers/goupil.cpp",
 	MAME_DIR .. "src/mame/drivers/grfd2301.cpp",
 	MAME_DIR .. "src/mame/drivers/hazeltin.cpp",
@@ -4455,7 +4476,6 @@ files {
 	MAME_DIR .. "src/mame/drivers/trs80dt1.cpp",
 	MAME_DIR .. "src/mame/drivers/tsispch.cpp",
 	MAME_DIR .. "src/mame/includes/tsispch.h",
-	MAME_DIR .. "src/mame/drivers/tti.cpp",
 	MAME_DIR .. "src/mame/drivers/tulip1.cpp",
 	MAME_DIR .. "src/mame/drivers/unistar.cpp",
 	MAME_DIR .. "src/mame/drivers/v6809.cpp",
@@ -4487,6 +4507,7 @@ files {
 	MAME_DIR .. "src/mame/drivers/gs6809.cpp",
 	MAME_DIR .. "src/mame/drivers/gscpm.cpp",
 	MAME_DIR .. "src/mame/drivers/gsz80.cpp",
+	MAME_DIR .. "src/mame/drivers/ultim809.cpp",
 }
 
 end
