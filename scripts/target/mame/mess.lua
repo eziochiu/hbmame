@@ -474,6 +474,7 @@ MACHINES["CDP1879"] = true
 MACHINES["CHESSMACHINE"] = true
 MACHINES["CMOS40105"] = true
 MACHINES["COM8116"] = true
+MACHINES["COP452"] = true
 MACHINES["CR589"] = true
 MACHINES["CS4031"] = true
 MACHINES["CS8221"] = true
@@ -856,6 +857,7 @@ BUSES["HP9845_IO"] = true
 BUSES["KC"] = true
 BUSES["LPCI"] = true
 BUSES["M5"] = true
+BUSES["MACKBD"] = true
 BUSES["MACPDS"] = true
 BUSES["MIDI"] = true
 BUSES["MEGADRIVE"] = true
@@ -1736,8 +1738,6 @@ files {
 	MAME_DIR .. "src/mame/machine/macadb.h",
 	MAME_DIR .. "src/mame/machine/macrtc.cpp",
 	MAME_DIR .. "src/mame/machine/macrtc.h",
-	MAME_DIR .. "src/mame/machine/mackbd.cpp",
-	MAME_DIR .. "src/mame/machine/mackbd.h",
 	MAME_DIR .. "src/mame/machine/swim.cpp",
 	MAME_DIR .. "src/mame/machine/swim.h",
 	MAME_DIR .. "src/mame/video/mac.cpp",
@@ -1967,7 +1967,6 @@ files {
 	MAME_DIR .. "src/mame/drivers/mikro80.cpp",
 	MAME_DIR .. "src/mame/includes/mikro80.h",
 	MAME_DIR .. "src/mame/machine/mikro80.cpp",
-	MAME_DIR .. "src/mame/video/mikro80.cpp",
 	MAME_DIR .. "src/mame/drivers/okean240.cpp",
 	MAME_DIR .. "src/mame/drivers/pk8000.cpp",
 	MAME_DIR .. "src/mame/includes/pk8000.h",
@@ -2119,9 +2118,6 @@ files {
 createMESSProjects(_target, _subtarget, "ddr")
 files {
 	MAME_DIR .. "src/mame/drivers/ac1.cpp",
-	MAME_DIR .. "src/mame/includes/ac1.h",
-	MAME_DIR .. "src/mame/machine/ac1.cpp",
-	MAME_DIR .. "src/mame/video/ac1.cpp",
 	MAME_DIR .. "src/mame/drivers/bcs3.cpp",
 	MAME_DIR .. "src/mame/drivers/c80.cpp",
 	MAME_DIR .. "src/mame/includes/c80.h",
@@ -3206,12 +3202,7 @@ files {
 createMESSProjects(_target, _subtarget, "pel")
 files {
 	MAME_DIR .. "src/mame/drivers/galeb.cpp",
-	MAME_DIR .. "src/mame/includes/galeb.h",
-	MAME_DIR .. "src/mame/video/galeb.cpp",
 	MAME_DIR .. "src/mame/drivers/orao.cpp",
-	MAME_DIR .. "src/mame/includes/orao.h",
-	MAME_DIR .. "src/mame/machine/orao.cpp",
-	MAME_DIR .. "src/mame/video/orao.cpp",
 }
 
 createMESSProjects(_target, _subtarget, "philips")
@@ -3785,7 +3776,6 @@ files {
 	MAME_DIR .. "src/mame/drivers/ondra.cpp",
 	MAME_DIR .. "src/mame/includes/ondra.h",
 	MAME_DIR .. "src/mame/machine/ondra.cpp",
-	MAME_DIR .. "src/mame/video/ondra.cpp",
 	MAME_DIR .. "src/mame/drivers/pmd85.cpp",
 	MAME_DIR .. "src/mame/includes/pmd85.h",
 	MAME_DIR .. "src/mame/machine/pmd85.cpp",
@@ -4025,6 +4015,7 @@ files {
 	MAME_DIR .. "src/mame/drivers/actions_atj2279b.cpp",
 	MAME_DIR .. "src/mame/drivers/pubint_storyreader.cpp",
 	MAME_DIR .. "src/mame/drivers/magiceyes_pollux_vr3520f.cpp",
+	MAME_DIR .. "src/mame/drivers/monkey_king_3b.cpp",
 }
 
 createMESSProjects(_target, _subtarget, "ultimachine")

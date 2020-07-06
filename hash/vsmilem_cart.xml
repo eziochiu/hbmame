@@ -24,6 +24,7 @@ Language:
 *******?? = Finland
 
 +========+===================+===========================================================================================+
+|   XX   | 80-084000(US)     | Action Mania                                                                              |
 |   XX   | 80-084000(US)     | Action Mania (Rev, 4?)                                                                    |
 |   XX   | 80-084000(US)     | Action Mania (Rev, 6?)                                                                    |
 |        |          (IT)     | ?????                                                                                     |
@@ -68,7 +69,7 @@ Language:
 |   XX   | 80-084124(GE)     | Kung Fu Panda - Der Weg des Panda                                                         |
 |   XX   | 80-084125(FR)     | Kung Fu Panda - La mission de Po                                                          |
 +========+===================+===========================================================================================+
-|        | 80-084140(US)     | Spider-Man & Friends - Secret Missions (AKA Professor V's Secret Missions with diff label)|
+|   XX   | 80-084140(US)     | Spider-Man & Friends - Secret Missions (AKA Professor V's Secret Missions with diff label)|
 |        | 80-084143(UK)     | Spider-Man & Friends - Secret Missions                                                    |
 |   XX   | 80-084144(GE)     | Spider-Man & Freunde - Geheime Missionen                                                  |
 |   XX   | 80-084145(FR)     | Spider-Man & ses amis - Missions Secrètes                                                 |
@@ -114,7 +115,7 @@ Language:
 |        | 80-084284(GE)     | Dolphis Wasser-abenteuer                                                                  |
 |   XX   | 80-084285(FR)     | Martin le Dauphin                                                                         |
 +========+===================+===========================================================================================+
-|        | 80-084300(US)     | Soccer Challenge                                                                          |
+|   XX   | 80-084300(US)     | Soccer Challenge                                                                          |
 |        | 80-084303(UK)     | Football Challenge                                                                        |
 |   XX   | 80-084304(GE)     | Fussball Meisterschaft                                                                    |
 |   XX   | 80-084305(FR)     | Football Challenge                                                                        |
@@ -161,7 +162,7 @@ Language:
 |        | 80-084406(PT)     | Cars - Aventura Em Radiator Springs (84416 on cart)                                        |
 |   XX   | 80-084407(SP)     | Cars - Acelera el Motor en Radiador Springs                                                |
 +========+===================+===========================================================================================+
-|        | 80-084420(US)     | Toy Story 3                                                                               |
+|   XX   | 80-084420(US)     | Toy Story 3                                                                               |
 |        | 80-084421(US)     | Toy Story 3 (pocket version)                                                              |
 |        |          (IT)     | Toy Story 3 (EAN 8033836704196, GP470419?)                                                |
 |        | 80-084422(NL)     | Toy Story 3                                                                               |
@@ -258,6 +259,19 @@ Language:
 			</dataarea>
 		</part>
 	</software>
+
+	<software name="actnmniamb" cloneof="actnmniam" supported="no">
+		<description>Action Mania (USA)</description>
+		<year>201?</year>
+		<publisher>VTech</publisher>
+		<info name="serial" value="80-084000(US)" />
+		<part name="cart" interface="vsmile_cart">
+			<dataarea name="rom" size="0x0800000">
+				<rom name="vmotion80-084000.bin" size="0x0800000" crc="c3ca971e" sha1="5c63215280ec3fdb01e8b4a0c151496718b6bc0a" />
+			</dataarea>
+		</part>
+	</software>
+
 
 	<software name="actnmniamnl" cloneof="actnmniam" supported="no">
 		<description>Sport Games (Netherlands)</description>
@@ -382,7 +396,7 @@ Language:
 		<part name="cart" interface="vsmile_cart">
 			<feature name="u1" value="" />
 			<dataarea name="rom" size="0x1000000">
-				<rom name="084585 - Cars 2 (MOTION) (FR).bin" size="0x1000000" crc="8d5eeb71" sha1="f53867b360464c12d905ca90aaf03855ca5fa455" />
+				<rom name="084585 - Cars 2 (MOTION) (FR).bin" size="0x1000000" crc="9455eff9" sha1="0ff3fe336369f95dec640a5ca691daabacbc5332" />
 			</dataarea>
 		</part>
 	</software>
@@ -990,7 +1004,19 @@ Language:
 	</software>
 
 	<!-- Soccer Challenge -->
-	<software name="soccerchmg" supported="no">
+	<software name="soccerchm" supported="no">
+		<description>Soccer Challenge (USA)</description>
+		<year>200?</year>
+		<publisher>VTech</publisher>
+		<info name="serial" value="80-084300(US)" />
+		<part name="cart" interface="vsmile_cart">
+			<dataarea name="rom" size="0x0800000">
+				<rom name="vmotion80-084300.bin" size="0x0800000" crc="4d0dd939" sha1="b5411b036fa91daf56f654be4ce71b4ac15541ca" />
+			</dataarea>
+		</part>
+	</software>	
+	
+	<software name="soccerchmg" cloneof="soccerchm" supported="no">
 		<description>Fussball Meisterschaft (Germany)</description>
 		<year>20??</year>
 		<publisher>VTech</publisher>
@@ -1005,8 +1031,7 @@ Language:
 		</part>
 	</software>
 
-	<!-- Soccer Challenge -->
-	<software name="soccerchmf" supported="no" cloneof="soccerchmg">
+	<software name="soccerchmf" cloneof="soccerchm" supported="no">
 		<description>Football Challenge (France)</description>
 		<year>20??</year>
 		<publisher>VTech</publisher>
@@ -1019,7 +1044,19 @@ Language:
 		</part>
 	</software>
 
-	<software name="spidermnmg" supported="no">
+	<software name="spidermnm" supported="no">
+		<description>Marvel Spider-Man &amp; Friends - Secret Missions (USA)</description>
+		<year>200?</year>
+		<publisher>VTech</publisher>
+		<info name="serial" value="80-084140(US)" />
+		<part name="cart" interface="vsmile_cart">
+			<dataarea name="rom" size="0x0800000">
+				<rom name="vmotion80-084140.bin" size="0x0800000" crc="be4f9c32" sha1="9f7d77f1cdf64ab993a5d07b91d435a861c91758" />
+			</dataarea>
+		</part>
+	</software>
+
+	<software name="spidermnmg" cloneof="spidermnm" supported="no">
 		<description>Marvel Spider-Man &amp; Freunde - Geheime Missionen (Germany)</description>
 		<year>2010</year>
 		<publisher>VTech</publisher>
@@ -1034,7 +1071,7 @@ Language:
 		</part>
 	</software>
 
-	<software name="spidermnmf" cloneof="spidermnmg" supported="no">
+	<software name="spidermnmf" cloneof="spidermnm" supported="no">
 		<description>Marvel Spider-Man &amp; ses amis - Missions Secrètes (France)</description>
 		<year>2008</year>
 		<publisher>VTech</publisher>
@@ -1115,7 +1152,19 @@ Language:
 		</part>
 	</software>
 
-	<software name="toystor3mg" supported="no">
+	<software name="toystor3m" supported="no">
+		<description>Toy Story 3 (USA)</description>
+		<year>2010</year>
+		<publisher>VTech</publisher>
+		<info name="serial" value="80-084420(US)" />
+		<part name="cart" interface="vsmile_cart">
+			<dataarea name="rom" size="0x1000000">
+				<rom name="vmotion80-084420.bin" size="0x1000000" crc="c0500151" sha1="265d55fd723ff7698154165719ff9cfe6c3bf0c3" />
+			</dataarea>
+		</part>
+	</software>
+
+	<software name="toystor3mg" cloneof="toystor3m" supported="no">
 		<description>Toy Story 3 (Germany)</description>
 		<year>2010</year>
 		<publisher>VTech</publisher>
@@ -1132,7 +1181,7 @@ Language:
 		</part>
 	</software>
 
-	<software name="toystor3mf" cloneof="toystor3mg" supported="no">
+	<software name="toystor3mf" cloneof="toystor3m" supported="no">
 		<description>Toy Story 3 (France)</description>
 		<year>2010</year>
 		<publisher>VTech</publisher>
@@ -1145,7 +1194,7 @@ Language:
 		</part>
 	</software>
 
-	<software name="toystor3ms" cloneof="toystor3mg" supported="no">
+	<software name="toystor3ms" cloneof="toystor3m" supported="no">
 		<description>Disney/Pixar Toy Story 3 (Spain)</description>
 		<year>2010</year>
 		<publisher>VTech</publisher>
@@ -1286,5 +1335,5 @@ Language:
 			</dataarea>
 		</part>
 	</software>
-
+	
 </softwarelist>

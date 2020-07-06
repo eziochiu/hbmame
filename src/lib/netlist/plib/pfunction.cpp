@@ -84,8 +84,24 @@ namespace plib {
 				{ rc.m_cmd = MULT; stk -= 1; }
 			else if (cmd == "/")
 				{ rc.m_cmd = DIV; stk -= 1; }
+			else if (cmd == "==")
+				{ rc.m_cmd = EQ; stk -= 1; }
+			else if (cmd == "!=")
+				{ rc.m_cmd = NE; stk -= 1; }
+			else if (cmd == "<")
+				{ rc.m_cmd = LT; stk -= 1; }
+			else if (cmd == ">")
+				{ rc.m_cmd = GT; stk -= 1; }
+			else if (cmd == "<=")
+				{ rc.m_cmd = LE; stk -= 1; }
+			else if (cmd == ">=")
+				{ rc.m_cmd = GE; stk -= 1; }
+			else if (cmd == "if")
+				{ rc.m_cmd = IF; stk -= 2; }
 			else if (cmd == "pow")
 				{ rc.m_cmd = POW; stk -= 1; }
+			else if (cmd == "log")
+				{ rc.m_cmd = LOG; stk -= 0; }
 			else if (cmd == "sin")
 				{ rc.m_cmd = SIN; stk -= 0; }
 			else if (cmd == "cos")
@@ -142,12 +158,16 @@ namespace plib {
 			return 1;
 		if (plib::left(v, 1) >= "a" && plib::left(v, 1) <= "z")
 			return 0;
+		if (v == "^")
+			return 30;
 		if (v == "*" || v == "/")
 			return 20;
 		if (v == "+" || v == "-")
 			return 10;
-		if (v == "^")
-			return 30;
+		if (v == "<" || v == ">" || v == "<=" || v == ">=")
+			return 9;
+		if (v == "==" || v == "!=")
+			return 8;
 
 		return -1;
 	}
@@ -165,7 +185,7 @@ namespace plib {
 	void pfunction<NT>::compile_infix(const pstring &expr, const inputs_container &inputs)
 	{
 		// Shunting-yard infix parsing
-		std::vector<pstring> sep = {"(", ")", ",", "*", "/", "+", "-", "^"};
+		std::vector<pstring> sep = {"(", ")", ",", "*", "/", "+", "-", "^", "<=", ">=", "==", "!=", "<", ">"};
 		std::vector<pstring> sexpr1(plib::psplit(plib::replace_all(expr, " ", ""), sep));
 		std::stack<pstring> opstk;
 		std::vector<pstring> postfix;
@@ -275,6 +295,8 @@ namespace plib {
 			postfix.push_back(opstk.top());
 			opstk.pop();
 		}
+		//for (auto &e : postfix)
+		//	printf("\t %s\n", e.c_str());
 		compile_postfix(inputs, postfix, expr);
 	}
 
@@ -300,6 +322,7 @@ namespace plib {
 		return narrow_cast<NT>(lfsr);
 	}
 
+	#define ST0 stack[ptr+1]
 	#define ST1 stack[ptr]
 	#define ST2 stack[ptr-1]
 
@@ -323,7 +346,15 @@ namespace plib {
 				OP(MULT, 1, ST2 * ST1)
 				OP(SUB,  1, ST2 - ST1)
 				OP(DIV,  1, ST2 / ST1)
+				OP(EQ,   1, ST2 == ST1 ? 1.0 : 0.0)
+				OP(NE,   1, ST2 != ST1 ? 1.0 : 0.0)
+				OP(GT,   1, ST2 > ST1 ? 1.0 : 0.0)
+				OP(LT,   1, ST2 < ST1 ? 1.0 : 0.0)
+				OP(LE,   1, ST2 <= ST1 ? 1.0 : 0.0)
+				OP(GE,   1, ST2 >= ST1 ? 1.0 : 0.0)
+				OP(IF,   2, (ST2 != 0.0) ? ST1 : ST0)
 				OP(POW,  1, plib::pow(ST2, ST1))
+				OP(LOG,  0, plib::log(ST2))
 				OP(SIN,  0, plib::sin(ST2))
 				OP(COS,  0, plib::cos(ST2))
 				OP(MAX,  1, std::max(ST2, ST1))

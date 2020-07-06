@@ -193,7 +193,7 @@ void rf5c400_device::device_start()
 void rf5c400_device::sound_stream_update(sound_stream &stream, stream_sample_t **inputs, stream_sample_t **outputs, int samples)
 {
 	int i, ch;
-	uint32_t end, loop;
+	uint64_t end, loop;
 	uint64_t pos;
 	uint8_t vol, lvol, rvol, type;
 	uint8_t env_phase;
@@ -299,7 +299,7 @@ void rf5c400_device::sound_stream_update(sound_stream &stream, stream_sample_t *
 			if ((pos>>16) > end)
 			{
 				pos -= loop<<16;
-				pos &= 0xFFFFFF0000U;
+				pos &= 0xFFFFFF0000ULL;
 			}
 
 		}
