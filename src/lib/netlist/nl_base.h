@@ -160,7 +160,7 @@ class NETLIB_NAME(name) : public delegator_t<base_device_t>
 /// Please see \ref NETLIB_IS_TIMESTEP for an example.
 
 #define NETLIB_TIMESTEPI()                                                     \
-	public: virtual void timestep(nl_fptype step)  noexcept override
+	public: virtual void timestep(timestep_type ts_type, nl_fptype step)  noexcept override
 
 /// \brief Used to implement the body of the time stepping code.
 ///
@@ -171,7 +171,7 @@ class NETLIB_NAME(name) : public delegator_t<base_device_t>
 /// \param cname Name of object as given to \ref NETLIB_OBJECT
 ///
 #define NETLIB_TIMESTEP(cname)                                                 \
-	void NETLIB_NAME(cname) :: timestep(nl_fptype step) noexcept
+	void NETLIB_NAME(cname) :: timestep(timestep_type ts_type, nl_fptype step) noexcept
 
 #define NETLIB_DELEGATE(name) nldelegate(&this_type :: name, this)
 
@@ -200,10 +200,16 @@ class NETLIB_NAME(name) : public delegator_t<base_device_t>
 namespace netlist
 {
 
+	enum class timestep_type
+	{
+		FORWARD,  ///< forward time
+		RESTORE   ///< restore state before last forward
+	};
+
 	/// \brief Delegate type for device notification.
 	///
 	using nldelegate = plib::pmfp<void>;
-	using nldelegate_ts = plib::pmfp<void, nl_fptype>;
+	using nldelegate_ts = plib::pmfp<void, timestep_type, nl_fptype>;
 	using nldelegate_dyn = plib::pmfp<void>;
 
 	//============================================================
@@ -691,7 +697,7 @@ namespace netlist
 
 			virtual ~net_t() noexcept = default;
 
-			void reset() noexcept;
+			virtual void reset() noexcept;
 
 			void toggle_new_Q() noexcept { m_new_Q = (m_cur_Q ^ 1);   }
 
@@ -951,6 +957,8 @@ namespace netlist
 	public:
 
 		analog_net_t(netlist_state_t &nl, const pstring &aname, detail::core_terminal_t *railterminal = nullptr);
+
+		void reset() noexcept override;
 
 		nl_fptype Q_Analog() const noexcept { return m_cur_Analog; }
 		void set_Q_Analog(nl_fptype v) noexcept { m_cur_Analog = v; }
@@ -1397,7 +1405,7 @@ namespace netlist
 		log_type & log();
 
 	public:
-		virtual void timestep(const nl_fptype st) noexcept { plib::unused_var(st); }
+		virtual void timestep(timestep_type ts_type, nl_fptype st) noexcept { plib::unused_var(ts_type, st); }
 		virtual void update_terminals() noexcept { }
 
 		virtual void update_param() noexcept {}
@@ -1744,7 +1752,13 @@ namespace netlist
 		///
 		void print_stats(stats_info &si) const;
 
+		/// \brief call reset on all netlist components
+		///
 		void reset();
+
+		/// \brief prior to running free no longer needed resources
+		///
+		void free_setup_resources();
 
 	private:
 
@@ -1785,10 +1799,7 @@ namespace netlist
 				m_inc = netlist_time::from_fp(plib::reciprocal(m_freq()*nlconst::two()));
 			}
 
-			NETLIB_RESETI()
-			{
-				m_Q.net().set_next_scheduled_time(netlist_time_ext::zero());
-			}
+			NETLIB_RESETI();
 
 			NETLIB_UPDATE_PARAMI()
 			{
@@ -1914,12 +1925,11 @@ namespace netlist
 	{
 	public:
 		template<class D, typename... Args>
-		object_array_base_t(D &dev, const std::initializer_list<const char *> &names, Args&&... args)
+		//object_array_base_t(D &dev, const std::initializer_list<const char *> &names, Args&&... args)
+		object_array_base_t(D &dev, std::array<const char *, N> &&names, Args&&... args)
 		{
-			passert_always_msg(names.size() == N, "initializer_list size mismatch");
-			std::size_t i = 0;
-			for (const auto &n : names)
-				this->emplace(i++, dev, pstring(n), std::forward<Args>(args)...);
+			for (std::size_t i = 0; i<N; i++)
+				this->emplace(i, dev, pstring(names[i]), std::forward<Args>(args)...);
 		}
 
 		template<class D>
@@ -2146,6 +2156,14 @@ namespace netlist
 		analog_input_t m_VCC;
 		analog_input_t m_GND;
 	};
+
+	namespace devices
+	{
+		inline NETLIB_RESET(mainclock)
+		{
+			m_Q.net().set_next_scheduled_time(exec().time());
+		}
+	} // namespace devices
 
 	// -----------------------------------------------------------------------------
 	// Hot section

@@ -126,6 +126,14 @@ namespace analog
 			m_N.set_go_gt_I(a21, a22, rhs2);
 		}
 
+		void clear_mat() const noexcept
+		{
+			const auto z = nlconst::zero();
+			//               GO,  GT,     I
+			m_P.set_go_gt_I(z, z, z);
+			m_N.set_go_gt_I(z, z, z);
+		}
+
 		/// \brief Get a const reference to the m_P terminal
 		///
 		/// This is typically called during initialization to connect
@@ -306,17 +314,23 @@ namespace analog
 		NETLIB_IS_TIMESTEP(true)
 		NETLIB_TIMESTEPI()
 		{
-			// G, Ieq
-			const auto res(m_cap.timestep(m_C(), deltaV(), step));
-			const nl_fptype G = res.first;
-			const nl_fptype I = res.second;
-			set_mat( G, -G, -I,
-					-G,  G,  I);
+			if (ts_type == timestep_type::FORWARD)
+			{
+				// G, Ieq
+				const auto res(m_cap.timestep(m_C(), deltaV(), step));
+				const nl_fptype G = res.first;
+				const nl_fptype I = res.second;
+				set_mat( G, -G, -I,
+						-G,  G,  I);
+			}
+			else
+				m_cap.restore_state();
 		}
 
 		NETLIB_RESETI()
 		{
 			m_cap.setparams(exec().gmin());
+			clear_mat();
 		}
 
 		/// \brief Set capacitance
@@ -403,6 +417,7 @@ namespace analog
 		, m_gmin(nlconst::zero())
 		, m_G(nlconst::zero())
 		, m_I(nlconst::zero())
+		, m_last_I(nlconst::zero())
 		{
 			//register_term("1", m_P);
 			//register_term("2", m_N);
@@ -422,6 +437,7 @@ namespace analog
 		nl_fptype m_gmin;
 		nl_fptype m_G;
 		nl_fptype m_I;
+		nl_fptype m_last_I;
 	};
 
 	/// \brief Class representing the diode model paramers.
@@ -569,11 +585,16 @@ namespace analog
 
 		NETLIB_TIMESTEPI()
 		{
-			m_t += step;
-			m_funcparam[0] = m_t;
-			this->set_G_V_I(plib::reciprocal(m_R()),
-					m_compiled->evaluate(m_funcparam),
-					nlconst::zero());
+			if (ts_type == timestep_type::FORWARD)
+			{
+				m_t += step;
+				m_funcparam[0] = m_t;
+				this->set_G_V_I(plib::reciprocal(m_R()),
+						m_compiled->evaluate(m_funcparam),
+						nlconst::zero());
+			}
+			else
+				m_t -= step; // only need to restore state, will be called again
 		}
 
 	protected:
@@ -616,12 +637,17 @@ namespace analog
 		NETLIB_IS_TIMESTEP(!m_func().empty())
 		NETLIB_TIMESTEPI()
 		{
-			m_t += step;
-			m_funcparam[0] = m_t;
-			const nl_fptype I = m_compiled->evaluate(m_funcparam);
-			const auto zero(nlconst::zero());
-			set_mat(zero, zero, -I,
-					zero, zero,  I);
+			if (ts_type == timestep_type::FORWARD)
+			{
+				m_t += step;
+				m_funcparam[0] = m_t;
+				const nl_fptype I = m_compiled->evaluate(m_funcparam);
+				const auto zero(nlconst::zero());
+				set_mat(zero, zero, -I,
+						zero, zero,  I);
+			}
+			else
+				m_t -= step;
 		}
 
 	protected:
