@@ -26,7 +26,7 @@ namespace netlist
 	NETLIB_OBJECT(log)
 	{
 		NETLIB_CONSTRUCTOR(log)
-		, m_I(*this, "I")
+		, m_I(*this, "I", NETLIB_DELEGATE(input))
 		, m_strm(plib::filesystem::u8path(plib::pfmt("{1}.log")(this->name())))
 		, m_writer(&m_strm)
 		, m_reset(false)
@@ -53,7 +53,12 @@ namespace netlist
 			m_write_thread.join();
 		}
 
-		NETLIB_UPDATEI()
+		NETLIB_HANDLERI(input)
+		{
+			log_value(static_cast<nl_fptype>(m_I()));
+		}
+
+		void log_value(nl_fptype val)
 		{
 			if (m_buffers[m_w].size() == BUF_SIZE)
 			{
@@ -64,7 +69,7 @@ namespace netlist
 					m_w = 0;
 			}
 			/* use pstring::sprintf, it is a LOT faster */
-			m_buffers[m_w].push_back({exec().time(), static_cast<nl_fptype>(m_I())});
+			m_buffers[m_w].push_back({exec().time(), val});
 			//m_writer.writeline(plib::pfmt("{1:.9} {2}").e(exec().time().as_fp<nl_fptype>()).e(static_cast<nl_fptype>(m_I())));
 		}
 
@@ -117,16 +122,17 @@ namespace netlist
 	NETLIB_OBJECT_DERIVED(logD, log)
 	{
 		NETLIB_CONSTRUCTOR(logD)
-		, m_I2(*this, "I2")
+		, m_I2(*this, "I2", nldelegate(&NETLIB_NAME(logD)::input, this))
 		{
+			m_I.set_delegate(nldelegate(&NETLIB_NAME(logD)::input, this));
 		}
 
-		NETLIB_UPDATEI()
+		NETLIB_HANDLERI(input)
 		{
-			m_writer.writeline(plib::pfmt("{1:.9} {2}").e(exec().time().as_fp<nl_fptype>()).e(static_cast<nl_fptype>(m_I() - m_I2())));
+			log_value(static_cast<nl_fptype>(m_I() - m_I2()));
 		}
 
-		NETLIB_RESETI() { }
+		//NETLIB_RESETI() {}
 		analog_input_t m_I2;
 	};
 

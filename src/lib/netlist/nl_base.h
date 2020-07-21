@@ -177,7 +177,6 @@ class NETLIB_NAME(name) : public delegator_t<base_device_t>
 
 #define NETLIB_UPDATE_TERMINALSI() virtual void update_terminals() noexcept override
 #define NETLIB_HANDLERI(name) void name() noexcept
-#define NETLIB_UPDATEI() virtual void update() noexcept override
 #define NETLIB_UPDATE_PARAMI() virtual void update_param() noexcept override
 #define NETLIB_RESETI() virtual void reset() override
 
@@ -185,7 +184,11 @@ class NETLIB_NAME(name) : public delegator_t<base_device_t>
 #define NETLIB_SUB_UPTR(ns, chip) device_arena::unique_ptr< ns :: nld_ ## chip >
 
 #define NETLIB_HANDLER(chip, name) void NETLIB_NAME(chip) :: name() noexcept
+
+#if 0
+#define NETLIB_UPDATEI() virtual void update() noexcept override
 #define NETLIB_UPDATE(chip) NETLIB_HANDLER(chip, update)
+#endif
 
 #define NETLIB_RESET(chip) void NETLIB_NAME(chip) :: reset(void)
 
@@ -274,12 +277,17 @@ namespace netlist
 		bool is_below_low_thresh_V(nl_fptype V, nl_fptype VN, nl_fptype VP) const noexcept
 		{ return V < low_thresh_V(VN, VP); }
 
+		pstring vcc_pin() const { return pstring(m_vcc); }
+		pstring gnd_pin() const { return pstring(m_gnd); }
+
 		nl_fptype m_low_thresh_PCNT;   //!< low input threshhold offset. If the input voltage is below this value times supply voltage, a "0" input is signalled
 		nl_fptype m_high_thresh_PCNT;  //!< high input threshhold offset. If the input voltage is above the value times supply voltage, a "0" input is signalled
 		nl_fptype m_low_VO;            //!< low output voltage offset. This voltage is output if the ouput is "0"
 		nl_fptype m_high_VO;           //!< high output voltage offset. The supply voltage minus this offset is output if the ouput is "1"
 		nl_fptype m_R_low;             //!< low output resistance. Value of series resistor used for low output
 		nl_fptype m_R_high;            //!< high output resistance. Value of series resistor used for high output
+		const char *m_vcc;             //!< default power pin name for positive supply
+		const char *m_gnd;             //!< default power pin name for negative supply
 	};
 
 	/// \brief Base class for devices, terminals, outputs and inputs which support
@@ -622,7 +630,7 @@ namespace netlist
 			};
 
 			core_terminal_t(core_device_t &dev, const pstring &aname,
-					state_e state, nldelegate delegate = nldelegate());
+					state_e state, nldelegate delegate);
 			virtual ~core_terminal_t() noexcept = default;
 
 			PCOPYASSIGNMOVE(core_terminal_t, delete)
@@ -808,7 +816,7 @@ namespace netlist
 	public:
 
 		analog_t(core_device_t &dev, const pstring &aname, state_e state,
-			nldelegate delegate = nldelegate());
+			nldelegate delegate);
 
 		const analog_net_t & net() const noexcept;
 		analog_net_t & net() noexcept;
@@ -831,7 +839,7 @@ namespace netlist
 		/// @param dev core_devict_t object owning the terminal
 		/// @param aname name of this terminal
 		/// @param otherterm pointer to the sibling terminal
-		terminal_t(core_device_t &dev, const pstring &aname, terminal_t *otherterm);
+		terminal_t(core_device_t &dev, const pstring &aname, terminal_t *otherterm, nldelegate delegate);
 
 		/// \brief Returns voltage of connected net
 		///
@@ -885,7 +893,7 @@ namespace netlist
 	{
 	public:
 		logic_t(device_t &dev, const pstring &aname,
-				state_e terminal_state, nldelegate delegate = nldelegate());
+				state_e terminal_state, nldelegate delegate);
 
 		logic_net_t & net() noexcept;
 		const logic_net_t &  net() const noexcept;
@@ -899,12 +907,8 @@ namespace netlist
 	{
 	public:
 		logic_input_t(device_t &dev, const pstring &aname,
-				nldelegate delegate = nldelegate());
+				nldelegate delegate);
 
-#if 0
-		template <class D>
-		logic_input_t(D &dev, const pstring &aname);
-#endif
 		inline netlist_sig_t operator()() const noexcept;
 
 		void inactivate() noexcept;
@@ -928,7 +932,7 @@ namespace netlist
 		/// \brief Constructor
 		analog_input_t(core_device_t &dev,  ///< owning device
 				const pstring &aname,       ///< name of terminal
-				nldelegate delegate = nldelegate() ///< delegate
+				nldelegate delegate ///< delegate
 		);
 
 		/// \brief returns voltage at terminal.
@@ -1381,8 +1385,6 @@ namespace netlist
 		// Has to be set in device reset
 		void set_active_outputs(int n) noexcept { m_active_outputs = n; }
 
-		void set_default_delegate(detail::core_terminal_t &term);
-
 		// stats
 		struct stats_t
 		{
@@ -1393,8 +1395,9 @@ namespace netlist
 		};
 
 		stats_t * stats() const noexcept { return m_stats.get(); }
-
+#if 0
 		virtual void update() noexcept { }
+#endif
 		virtual void reset() { }
 
 	protected:
@@ -1442,7 +1445,6 @@ namespace netlist
 		void connect(const detail::core_terminal_t &t1, const detail::core_terminal_t &t2);
 	protected:
 
-		//NETLIB_UPDATEI() { }
 		//NETLIB_UPDATE_TERMINALSI() { }
 
 	private:
@@ -1472,11 +1474,8 @@ namespace netlist
 
 		~device_t() noexcept override = default;
 
-		//nldelegate default_delegate() { return nldelegate(&device_t::update, this); }
-		nldelegate default_delegate() { return { &core_device_t::update, dynamic_cast<core_device_t *>(this) }; }
 	protected:
 
-		//NETLIB_UPDATEI() { }
 		//NETLIB_UPDATE_TERMINALSI() { }
 
 	private:
@@ -1806,12 +1805,6 @@ namespace netlist
 				m_inc = netlist_time::from_fp(plib::reciprocal(m_freq()*nlconst::two()));
 			}
 
-			NETLIB_UPDATEI()
-			{
-				// only called during start up.
-				// mainclock will step forced by main loop
-			}
-
 		public:
 			logic_output_t m_Q; // NOLINT: needed in core
 			netlist_time m_inc; // NOLINT: needed in core
@@ -2135,10 +2128,9 @@ namespace netlist
 	public:
 		using this_type = nld_power_pins;
 
-		explicit nld_power_pins(device_t &owner, const pstring &sVCC = sPowerVCC,
-			const pstring &sGND = sPowerGND)
-		: m_VCC(owner, sVCC, NETLIB_DELEGATE(noop))
-		, m_GND(owner, sGND, NETLIB_DELEGATE(noop))
+		explicit nld_power_pins(device_t &owner)
+		: m_VCC(owner, owner.logic_family()->vcc_pin(), NETLIB_DELEGATE(noop))
+		, m_GND(owner, owner.logic_family()->gnd_pin(), NETLIB_DELEGATE(noop))
 		{
 		}
 

@@ -3092,6 +3092,10 @@ avigo_es                        // 1997 Avigo (Spanish)
 avigo_fr                        // 1997 Avigo (French)
 avigo_it                        // 1997 Avigo (Italian)
 
+@source:avrmax.cpp
+avrmax
+avrmaxg
+
 @source:avt.cpp
 avtbingo                        // (c) 1985 AVT
 avtnfl                          // (c) 1989 AVT
@@ -11257,9 +11261,6 @@ warzardr1                       // 23/10/1996 (c) 1996 (Japan)
 cpzodiac                        //
 cpzodiacj                       //
 
-@source:craft.cpp
-craft                           // Craft, by [lft]
-
 @source:crazybal.cpp
 crazybal                        // EGS
 
@@ -13316,6 +13317,9 @@ deathrac                        // (c) 1976 Exidy
 destdrby                        // (c) 1976 Exidy
 rhunting                        // bootleg of deathrac
 
+@source:exorciser.cpp
+exorciser                       // 1975 Motorola
+
 @source:exorterm.cpp
 exorterm155                     // (c) 1979 Motorola
 
@@ -13989,6 +13993,10 @@ speedup                         // (c) 1996 - Ref ???
 speedup10                       // (c) 1996 - Ref ???
 surfplnt                        // (c) 1997 - Ref 971223
 surfplnt40                      // (c) 1997 - Ref 970514
+
+@source:gaelcof3.cpp
+autopapa                        //
+susanita                        //
 
 @source:gaelcopc.cpp
 rriders                         //
@@ -15207,6 +15215,7 @@ lucky8h                         // 1991, hack
 lucky8i                         // 199?, Eagle, licensed by Wing
 lucky8j                         // 199?, hack
 lucky8k                         // (c) 1989 Wing. With CPU NEC D315-5136
+lucky8l                         // (c) 1989 Wing Co. Ltd
 luckybar                        // unknown
 luckylad                        // (c) 1985 Wing Co. Ltd
 magodds                         // 198? (c) Micro Manufacturing Ltd.
@@ -19357,6 +19366,16 @@ ripribita                       // (c) 1997 LAI Games
 lft1230                         //
 lft1510                         //
 
+@source:lft_chiptune.cpp
+powernin                        // Power Ninja Action Challenge, by [lft] (2009)
+hwchiptn                        // The Hardware Chiptune Project, by [lft] and kryo (2007)
+
+@source:lft_craft.cpp
+craft                           // Craft, by [lft] (2008)
+
+@source:lft_phasor.cpp
+phasor                          // Phasor, by [lft] (2010)
+
 @source:lg-dvd.cpp
 lggp40                          //
 
@@ -19658,6 +19677,7 @@ dkgensanm82                     // (c) 1990 (Japan)
 gallop                          // (c) 1991 (Japan)
 hharry                          // (c) 1990 (World)
 hharryu                         // (c) 1990 Irem America (US)
+hharryb                       // bootleg
 imgfight                        // (c) 1988 (World)
 imgfightb                       // bootleg
 imgfightj                       // (c) 1988 (Japan)
@@ -31688,6 +31708,7 @@ pjoypj001
 afbm7800
 dnce2000
 vtvppong
+papsudok
 
 @source:nes_sh6578.cpp
 bandgpad
@@ -31695,6 +31716,7 @@ bandggcn
 cpatrolm
 ts_handy11
 ablwikid
+maxx6in1
 
 @source:nes_vt.cpp
 vdogdeme
@@ -31704,7 +31726,6 @@ vtpinball                       // From V.R. Technology VT SDK
 vtsndtest                       // From V.R. Technology VT SDK
 vtboxing                        // From V.R. Technology VT SDK
 ablpinb
-papsudok
 mc_dgear
 dgun2500
 dgun2561
@@ -31805,6 +31826,9 @@ newbrainmd                      //
 @source:news.cpp
 news                            // "Virus"??? ((c) 1993 Poby in ROM VIRUS.4)
 newsa                           // "Jeansole / Poby
+
+@source:news_38xx.cpp
+nws3860                         // Sony NEWS NWS-3860
 
 @source:news_68k.cpp
 nws1580                         // Sony NEWS NWS-1580
@@ -32082,6 +32106,9 @@ supercon
 @source:novag_diablo.cpp
 diablo68                        //
 scorpio68                       //
+
+@source:novag_micro.cpp
+nmicro
 
 @source:novag_micro2.cpp
 nmicro2
@@ -35340,6 +35367,9 @@ sag
 @source:sage2.cpp
 sage2
 
+@source:saitek_ccompan.cpp
+ccompan
+
 @source:saitek_chesstrv.cpp
 chesstrv
 
@@ -35355,6 +35385,9 @@ ccdelta1
 
 @source:saitek_exchess.cpp
 exchess
+
+@source:saitek_intchess.cpp
+intchess
 
 @source:saitek_leonardo.cpp
 galileo
@@ -37007,6 +37040,9 @@ sidepcktj                       // (c) 1986 Data East Corporation
 @source:sigma21.cpp
 sigma21                         //
 
+@source:sigmab31.cpp
+cptlucky                        // (c) 199? Sigma
+
 @source:sigmab52.cpp
 jwildb52                        // (c) 199? Sigma
 jwildb52a                       // (c) 199? Sigma
@@ -37224,6 +37260,7 @@ secondch                        // (c) 1985 SMS MFG CORP
 sureshot                        // (c) 1985 SMS MFG CORP
 smsjoker                        // (c) 1985 SMS MFG CORP
 sms4in1                         // (c) 1984 SMS MFG CORP
+sms4in1a                        // (c) 1984 SMS MFG CORP
 trvhang                         // (c) 1984 SMS MFG CORP
 trvhanga                        // (c) 1984 SMS MFG CORP
 
@@ -37754,6 +37791,9 @@ roldfroga                       // not a gaelco game but based on splash code
 splash                          // (c) 1992 - Ref 922804
 splash10                        // (c) 1992 - Ref 922804
 ringball                        // not a gaelco game but based on splash code
+
+@source:splash_ms.cpp
+splashms
 
 @source:splus.cpp
 spset005                        // (c) 1993 IGT - International Game Technology
@@ -38630,6 +38670,7 @@ cosmic                          //
 drakor                          //
 fireact                         //
 fireactd                        //
+football                        //
 gemini2k                        //
 gemini2k1                       //
 gork                            //
@@ -39233,6 +39274,9 @@ tkdenshoa                       // (c) 1996 Tecmo
 
 @source:tecnbras.cpp
 tecnbras                        //
+
+@source:tecnodar.cpp
+tecnodar                        //
 
 @source:tehkanwc.cpp
 gridiron                        // (c) 1985 Tehkan
@@ -41536,11 +41580,13 @@ bop_l7                          //
 dd_p06                          //
 dd_p7                           //
 fh_905h                         //
+fh_l2                           //
 fh_l3                           //
 fh_l4                           //
 fh_l5                           //
 fh_l9                           //
 fh_l9b                          //
+fh_pa1                          //
 hd_l1                           //
 hd_l2                           //
 hd_l3                           //

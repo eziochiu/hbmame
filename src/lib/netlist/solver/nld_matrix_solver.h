@@ -252,8 +252,7 @@ namespace solver
 				m_Q_sync.net().toggle_and_push_to_queue(delay);
 		}
 
-		// netdevice functions
-		NETLIB_UPDATEI()
+		NETLIB_HANDLERI(fb_sync)
 		{
 			PFDEBUG(printf("update\n");)
 			const netlist_time new_timestep = solve(exec().time());
@@ -330,6 +329,7 @@ namespace solver
 
 		state_var<std::size_t> m_stat_calculations;
 		state_var<std::size_t> m_stat_newton_raphson;
+		state_var<std::size_t> m_stat_newton_raphson_fail;
 		state_var<std::size_t> m_stat_vsolver_calls;
 
 		state_var<netlist_time_ext> m_last_step;
