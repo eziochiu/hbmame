@@ -5,12 +5,13 @@
  * (M68B09E + YM2151 + HC555xx + DAC)
  *
  * Used by Williams System 11A (F-14), all System 11B (except Jokerz) and all System 11C pinballs
- * Used by Midway Y-Unit Arcade Hardware (for Smash TV only; see below for High Impact Football)
+ * Used by Midway Y-Unit Arcade Hardware (for Smash TV, Trog, and Strike Force; see below
+ * for [Super] High Impact Football)
  *
  * The interface connector for this board is a 20 pin header J4 with the following pinout:
  *
  *            +--------+
- *        GND |  1   2 | NC 
+ *        GND |  1   2 | NC
  *        PB0 |  3   4 | PB1
  *        PB2 |  5   6 | PB3
  *        PB4 |  7   8 | PB5
@@ -28,7 +29,7 @@
  *
  * The actual full pinout of the connector, from the System 11 end is:
  *        +--------+
- *    GND |  1   2 | BLANKING 
+ *    GND |  1   2 | BLANKING
  *    MD0 |  3   4 | MD1
  *    MD2 |  5   6 | MD3
  *    MD4 |  7   8 | MD5
@@ -42,12 +43,14 @@
  *
  *
  * The mixing resistors before the MC1458 differ between the D-11581, D-11581-20xx (System 11C), and D-1129x board schematics:
- *                 D-1129x    D-11581        D-11581-20xx (and A-13971-500xx)
+ * (All resistors are 5% unless otherwise noted)
+ * newstyle P/N                              A-13971-43313 (and A-13971-500xx)
+ * oldstyle P/N    D-1129x    D-11581        D-11581-20xx or D-11581-400xx
  * CPU_SOUND       R32 2.2k   R12 2.2k       R12 4.7k
  * YM2151 CH1      R33 10k    R14 10k        R14 20k
  * YM2151 CH2      R34 10k    R15 10k        R15 20k
  * MC1408 DAC      R35 10k    R16 6.3k       R16 13k
- * CVSD           [R30 10k]  [R13 4.99k 2%]  R13 4.99k 2%
+ * CVSD           [R30 10k]  [R13 4.99k 1%]  R13 4.99k 1%
  * MC1458 Feedback R38 10k    R17 10k        R17 10k
  * MC1458 +-to-gnd R36 4.7k   R11 4.7k       R11 4.7k
  * [] - if CVSD section present
@@ -76,21 +79,29 @@
  * W11 - linked w/W2+W3    : EPROM U20 is a 2764, 27128 or 27256 (where pin 1 must be high)
 
 
- * NOTE: A board called A-13971-50003 is used on Midway Y-Unit Arcade Hardware High Impact Football,
- * and on the first 500 or so Funhouse Pinball machines. (Later Funhouse pinballs use the A-12738-50003
- * WPC Sound board, mentioned in the CVSD filtering section below. Despite its earlier part number, the
- * A-12738-50003 WPC Sound Board is a newer design, with the A-13971-50003 mentioned here seemingly produced
- * later as a stopgap due to development or production issues with the WPC Sound Board.)
- * The A-13971-50003 board is ALMOST the same as the D-11581-20xx System 11C version, except it has 32 pin
- * sockets for 27c010 chips, instead of 28 pin sockets. Despite this, the board is fully backwards compatible
- * with the D-11581-20xx, including the mixing resistors.
- * The highest ROM address bit for all 3 roms (as shown in the High Impact Football schematics,
- * but omitted from the prototype FunHouse Schematics) is driven by the rom banking register 0x7800 bit 4, which
- * is unused/unconnected on all other board revisions.
- * The 32 pin EPROM socket pins 1(VPP), 31(/PGM), 32(VCC) and 30(NC) are all tied to VCC.
- * Jumpers W2, W3, W10 and W11 act the same as they do on D-11581-20xx, just offset down in the socket by 2 pins.
+ * NOTE: A board called A-13971-50003 is used on Midway Y-Unit Arcade Hardware
+ * High Impact Football and Super High Impact Football, and on the first 500 or
+ * so Funhouse Pinball machines. (Later Funhouse pinballs use the A-12738-50003
+ * WPC Sound board, mentioned in the CVSD filtering section below. Despite its
+ * earlier part number, the A-12738-50003 WPC Sound Board is a newer design,
+ * with the A-13971-50003 mentioned here seemingly produced later as a stopgap
+ * due to development or production issues with the WPC Sound Board.)
+ * The A-13971-50003 board is ALMOST the same as the D-11581-20xx System 11C
+ * version, except it has 32 pin sockets for 27c010 chips, instead of 28 pin
+ * sockets for smaller chips. Despite this, the board is fully backwards
+ * compatible with the D-11581-20xx, including the mixing resistors.
+ * The highest address bit (A16, pin 2) for all 3 EPROMs (as shown in the
+ * High Impact Football schematics) is driven by the ROM banking register
+ * 0x7800 bit 3, which is unused/unconnected on all older board revisions.
+ * The 32 pin EPROM socket pins 1(VPP), 31(/PGM), 32(VCC) and 30(NC) are all
+ * tied to VCC.
+ * Jumpers W2, W3, W10 and W11 act the same as they do on D-11581-20xx, just
+ * offset down in the socket by 2 pins.
  * This means this board is fully backwards compatible with D-11581-20xx.
-
+ * (Note that the prototype Funhouse Schematics and the Super High Impact
+ * Footall Kit Service manual both incorrectly have schematics for the
+ * D-11581-20xx System 11C version of the board, and do not show the extra
+ * banking bit and larger sockets that the A-13971-50003 board has.)
 
 
  * Williams D-11297/D-11298 "BG Music & Speech Board":
@@ -196,10 +207,11 @@
 #include "sound/volt_reg.h"
 
 
-DEFINE_DEVICE_TYPE(S11C_BG, s11c_bg_device, "s11c_bg", "Williams System 11C Background Music")
+DEFINE_DEVICE_TYPE(S11C_BG, s11c_bg_device, "s11c_bg", "Williams System 11C Background Music Board")
+DEFINE_DEVICE_TYPE(S11_BG, s11_bg_device, "s11_bg", "Williams System 11 Background Music Board")
 
 s11c_bg_device::s11c_bg_device(const machine_config &mconfig, const char *tag, device_t *owner, uint32_t clock)
-	: device_t(mconfig, S11C_BG,tag,owner,clock)
+	: device_t(mconfig,S11C_BG,tag,owner,clock)
 	, device_mixer_interface(mconfig, *this)
 	, m_cpu(*this, "bgcpu")
 	, m_ym2151(*this, "ym2151")
@@ -209,6 +221,29 @@ s11c_bg_device::s11c_bg_device(const machine_config &mconfig, const char *tag, d
 	, m_rom(*this, finder_base::DUMMY_TAG)
 	, m_cb2_cb(*this)
 	, m_pb_cb(*this)
+	, m_old_resetq_state(ASSERT_LINE)
+{
+}
+
+// constructor with overridable type for subclass
+s11c_bg_device::s11c_bg_device(const machine_config &mconfig, device_type type, const char *tag, device_t *owner, uint32_t clock)
+	: device_t(mconfig,type,tag,owner,clock)
+	, device_mixer_interface(mconfig, *this)
+	, m_cpu(*this, "bgcpu")
+	, m_ym2151(*this, "ym2151")
+	, m_hc55516(*this, "hc55516_bg")
+	, m_pia40(*this, "pia40")
+	, m_cpubank(*this, "bgbank")
+	, m_rom(*this, finder_base::DUMMY_TAG)
+	, m_cb2_cb(*this)
+	, m_pb_cb(*this)
+	, m_old_resetq_state(ASSERT_LINE)
+{
+}
+
+// subclass definition
+s11_bg_device::s11_bg_device(const machine_config &mconfig, const char *tag, device_t *owner, uint32_t clock)
+	: s11c_bg_device(mconfig,S11_BG,tag,owner,clock)
 {
 }
 
@@ -266,7 +301,17 @@ void s11c_bg_device::data_w(uint8_t data)
 	m_pia40->portb_w(data);
 }
 
-void s11c_bg_device::device_add_mconfig(machine_config &config)
+WRITE_LINE_MEMBER( s11c_bg_device::resetq_w )
+{
+	if ((m_old_resetq_state != CLEAR_LINE) && (state == CLEAR_LINE))
+	{
+		logerror("S11 bg device received reset request\n");
+		common_reset();
+	}
+	m_old_resetq_state = state;
+}
+
+void s11c_bg_device::s11_bg_core(machine_config &config)
 {
 	MC6809E(config, m_cpu, XTAL(8'000'000) / 4); // MC68B09E
 	m_cpu->set_addrmap(AS_PROGRAM, &s11c_bg_device::s11c_bg_map);
@@ -281,8 +326,6 @@ void s11c_bg_device::device_add_mconfig(machine_config &config)
 	vref.add_route(0, "dac", 1.0, DAC_VREF_POS_INPUT);
 	vref.add_route(0, "dac", -1.0, DAC_VREF_NEG_INPUT);
 
-	HC55516(config, m_hc55516, 0).add_route(ALL_OUTPUTS, *this, 0.6);
-
 	PIA6821(config, m_pia40, 0);
 	m_pia40->writepa_handler().set("dac", FUNC(dac_byte_interface::data_w));
 	m_pia40->writepb_handler().set(FUNC(s11c_bg_device::pia40_pb_w));
@@ -292,19 +335,37 @@ void s11c_bg_device::device_add_mconfig(machine_config &config)
 	m_pia40->irqb_handler().set_inputline(m_cpu, INPUT_LINE_NMI);
 }
 
+void s11c_bg_device::device_add_mconfig(machine_config &config)
+{
+	s11_bg_core(config);
+	HC55516(config, m_hc55516, 0).add_route(ALL_OUTPUTS, *this, 0.6); // cvsd is twice as loud on the sys11c version
+}
+
+void s11_bg_device::device_add_mconfig(machine_config &config)
+{
+	s11_bg_core(config);
+	HC55516(config, m_hc55516, 0).add_route(ALL_OUTPUTS, *this, 0.3);
+}
+
 void s11c_bg_device::device_start()
 {
 	/* resolve lines */
 	m_cb2_cb.resolve();
 	m_pb_cb.resolve();
+	save_item(NAME(m_old_resetq_state));
 }
 
-void s11c_bg_device::device_reset()
+void s11c_bg_device::common_reset()
 {
 	m_cpubank->configure_entries(0, 16, &m_rom[0x0], 0x8000);
 	m_cpubank->set_entry(0);
 	// reset the CPU again, so that the CPU are starting with the right vectors (otherwise sound may die on reset)
 	m_cpu->pulse_input_line(INPUT_LINE_RESET, attotime::zero);
+}
+
+void s11c_bg_device::device_reset()
+{
+	common_reset();
 }
 
 void s11c_bg_device::bg_cvsd_clock_set_w(uint8_t data)
@@ -319,13 +380,13 @@ void s11c_bg_device::bg_cvsd_digit_clock_clear_w(uint8_t data)
 }
 
 /*
-	Rom mapping for the 4 banking bits:
-	3 2 1 0
-	r q 0 0 -  U4, A15 q, A16 r
-	r q 0 1 - U19, A15 q, A16 r
-	r q 1 0 - U20, A15 q, A16 r
-	x x 1 1 - open bus
-	for ease of loading the roms, we swap the bits to the order '1 0 3 2'
+    Rom mapping for the 4 banking bits:
+    3 2 1 0
+    r q 0 0 -  U4, A15 q, A16 r
+    r q 0 1 - U19, A15 q, A16 r
+    r q 1 0 - U20, A15 q, A16 r
+    x x 1 1 - open bus
+    for ease of loading the roms, we swap the bits to the order '1 0 3 2'
 */
 void s11c_bg_device::bgbank_w(uint8_t data)
 {
