@@ -2772,6 +2772,7 @@ ncr3433                         // NCR Class 3433
 aavenger                        //
 atarians                        //
 midearth                        //
+mideartha                       //
 spcrider                        //
 time2000                        //
 
@@ -3362,6 +3363,7 @@ beta                            //
 
 @source:bfcobra.cpp
 beeline                         // 1991 BFM
+brkball                         // 1994 BFM / ATOD
 escounts                        // 1990 BFM
 inquiztr                        // 1989 BFM
 qos                             // 1992 BFM
@@ -10346,6 +10348,7 @@ wildplt                         // (c) 1992 Jaleco
 
 @source:cit101.cpp
 cit101                          // (c) 1980 C. Itoh
+cit101e                         // (c) 1983 C. Itoh
 
 @source:cit101xl.cpp
 cit101xl                        //
@@ -11070,6 +11073,7 @@ pzloop2jr1                      // 05/02/2001 (c) 2001 Mitchell (Japan)
 qndream                         // 26/08/1996 (c) 1996 (Japan)
 ringdest                        // 02/09/1994 (c) 1994 (Euro)
 ringdesta                       // 31/08/1994 (c) 1994 (Asia)
+ringdestb                       // 02/09/1994 (c) 1994 (Brazil) - factory region hack?
 ringdesth                       // 02/09/1994 (c) 1994 (Hispanic)
 ringdstd                        //
 rmancp2j                        // 22/09/1995 (c) 1995 (Japan)
@@ -13871,12 +13875,14 @@ jolycdie                        // 1990 bootleg
 jolycdif                        // 1990 bootleg
 jolycdig                        // 1993 bootleg
 jolycdih                        // 1990 bootleg
+jolycdii                        // 1993 bootleg
 jolycdit                        // 199? bootleg
 jolycdsp                        // (c) 1992 TAB-Austria
 jolycmzs                        // (c) 1993 MZS Tech
 jolyjokr                        // (c) 198? Impera
 jolyjokra                       // (c) 198? Impera
-jolyjokrb                       // (c) 198? Impera
+jolyjokrb1                      // (c) 1985 Impera
+jolyjokrb2                      // (c) 1985 Impera
 jolyjokrc                       // (c) 198? Apple Time
 jolyjokrm                       // (c) 198? Impera
 jolyjokro                       // (c) 198? Impera
@@ -13894,6 +13900,7 @@ megacard                        // (c) 1993 Fun World
 mongolnw                        // 199? bootleg
 multiwin                        // (c) 1992 Fun World
 nevadafw                        // 199? unknown
+nkoulit                         // 1995 JK Amusement
 novoplay                        // (c) 1986 Novomatic
 pool10                          // (c) 1996 C.M.C.
 pool10b                         // (c) 1996 C.M.C.
@@ -13909,6 +13916,7 @@ biliard                         // 1998 bootleg.
 potgame                         // (c) 1996 C.M.C.
 powercrd                        // (c) 1993 Fun World
 rcdino4                         // 1998 unknown
+reflexcrd                       // (c) 1999 TAB-Austria
 royal                           // 2001, hack.
 royalcdfr                       // (c) 1991 TAB-Austria
 royalcrd                        // (c) 1991 TAB-Austria
@@ -14009,6 +14017,7 @@ surfplnt40                      // (c) 1997 - Ref 970514
 
 @source:gaelcof3.cpp
 autopapa                        //
+donpepito                       //
 susanita                        //
 
 @source:gaelcopc.cpp
@@ -14798,6 +14807,7 @@ smartfps
 gormiti
 tkmag220                        //
 myac220
+imgame
 
 @source:generalplus_gpl16250_romram.cpp
 paccon
@@ -15856,6 +15866,8 @@ hec2hrx                         //
 hec2mdhrx                       //
 hec2mx40                        //
 hec2mx80                        //
+hector1                         //
+interact                        //
 victor                          //
 
 @source:hektor.cpp
@@ -16698,10 +16710,6 @@ intlc440                        //
 
 @source:intellect02.cpp
 intel02                         //
-
-@source:interact.cpp
-hector1                         //
-interact                        //
 
 @source:interpro.cpp
 ip2000                          // Intergraph InterPro/InterServe 20x0
@@ -23066,7 +23074,8 @@ daytonat                        // 1994?   Kyle Hodgetts hack
 daytonata                       // 1994?   Kyle Hodgetts hack
 daytonagtx                      // 2004    Kyle Hodgetts hack
 desert                          // 1994.07 Desert Tank
-doa                             // 1996.11 Dead or Alive (Revision B)
+doa                             // 1997.01 Dead or Alive (Revision C)
+doab                            // 1996.12 Dead or Alive (Revision B)
 doaa                            // 1996.11 Dead or Alive (Revision A)
 dynabb                          // 1996.08 Dynamite Baseball
 dynabb97                        // 1997.04 Dynamite Baseball 97 (Revision A)
@@ -29139,9 +29148,12 @@ v4montec
 v4monted
 v4montee
 v4monteg
-v4monteh
-v4montei
-v4montej
+v4monteb
+v4monteba
+v4montebb
+v4monte5
+v4monte5a
+v4monte5b
 v4montek
 v4montel
 v4montem
@@ -32067,6 +32079,7 @@ ts_handy11
 ablwikid
 maxx5in1
 maxx6in1
+max10in1
 
 @source:nes_vt.cpp
 vdogdeme
@@ -32085,6 +32098,8 @@ lxcmcysw
 lxcmcyfz
 lxcmcydp
 lxcmcysp
+lxcmcypp
+lxcmcycr
 lxccminn
 lxccplan
 rtvgc300
@@ -32174,6 +32189,8 @@ xing48
 wowwg
 110dance
 lxts3
+unk1682
+njp60in1
 
 @source:newbrain.cpp
 newbrain                        //
@@ -32557,7 +32574,8 @@ g7400                           // 1983 Videopac Plus G7400
 jopac                           // 1983 Jopac JO7400
 odyssey2                        // Magnavox Odyssey 2 - 1978-1983
 odyssey3                        // Magnavox Odyssey 3 / Command Center (prototype)
-videopac                        // 1979 Videopac G7000/C52
+videopac                        // 1979 Videopac G7000
+videopacf                       // 1979 Videopac C52
 
 @source:offtwall.cpp
 offtwall                        // 136090           (c) 1991
@@ -37633,6 +37651,7 @@ snespal                         // Nintendo Super Nintendo PAL
 @source:snesb51.cpp
 mk3snes
 snes4sl
+snes4sln
 
 @source:snesb.cpp
 denseib                         // bootleg
@@ -37998,6 +38017,9 @@ pballpup
 swclone
 dreamlss
 senspeed
+ordentv
+wfcentro
+tiktokmm
 
 @source:spg2xx_digimake.cpp
 rad_digi
@@ -38127,6 +38149,7 @@ react
 
 @source:spg2xx_zone_32bit.cpp
 mywicodx                        //
+mywicogt
 zon32bit                        // Zone 32-bit
 oplayer
 dnv200fs
@@ -41795,8 +41818,8 @@ robotron87                      //
 robotron12                      //
 robotrontd                      //
 sinistar                        // (c) 1982
-sinistar1                       // (c) 1982
 sinistar2                       // (c) 1982
+sinistarp                       // (c) 1982 prototype (shown at AMOA 1982 show)
 spdball                         // (c) 1985
 splat                           // (c) 1982
 stargate                        // (c) 1981
@@ -42247,15 +42270,11 @@ rad_snowp                       //
 rad_madf                        //
 rad_fb                          //
 rad_socr                        //
-epo_bowl                        //
 epo_esdx                        //
 epo_epp                         //
 epo_eppk                        //
 epo_epp3                        //
 epo_efdx                        //
-epo_tfit
-epo_ebox                        //
-epo_sdb                         //
 epo_guru                        //
 epo_dmon                        //
 rad_rh                          //
@@ -42270,8 +42289,6 @@ jarajal                         //
 tcarnavi                        //
 tomcpin
 tomplc
-mrangbat
-ban_onep                        //
 ekara                           //
 ekaraa                          //
 ekaraj                          //
@@ -42287,10 +42304,22 @@ taikodp                         //
 jpopira                         //
 evio                            //
 gcslottv                        //
+
+@source:xavix_2000.cpp
+epo_ebox                        //
+epo_bowl                        //
+epo_sdb                         //
 ttv_sw                          //
 ttv_lotr                        //
 ttv_mx                          //
 drgqst                          //
+ban_onep                        //
+
+@source:xavix_2002.cpp
+suprpctv
+udance
+mrangbat
+epo_tfit
 tmy_thom                        //
 xavtenni                        //
 xavbaseb                        //

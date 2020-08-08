@@ -154,11 +154,11 @@ NLOBJS := \
 	$(NLOBJ)/devices/nld_tms4800.o \
 	$(NLOBJ)/devices/nld_4006.o \
 	$(NLOBJ)/devices/nld_4013.o \
+	$(NLOBJ)/devices/nld_4017.o \
 	$(NLOBJ)/devices/nld_4020.o \
 	$(NLOBJ)/devices/nld_4053.o \
 	$(NLOBJ)/devices/nld_4066.o \
 	$(NLOBJ)/devices/nld_4316.o \
-	$(NLOBJ)/devices/nld_7442.o \
 	$(NLOBJ)/devices/nld_7448.o \
 	$(NLOBJ)/devices/nld_7450.o \
 	$(NLOBJ)/devices/nld_7473.o \
@@ -251,7 +251,7 @@ MAKEFILE_TARGETS_WITHOUT_INCLUDE := gcc9 clang clang-5 mingw doc native maketree
 # PHONY
 #-------------------------------------------------
 
-.PHONY: all gcc9 clang clang-5 mingw doc native maketree $(DEPEND) depend runtests
+.PHONY: all gcc9 clang clang-5 mingw doc man native maketree $(DEPEND) depend runtests
 
 #-------------------------------------------------
 # all
@@ -361,8 +361,13 @@ mingw:
 #     LDEXTRAFLAGS = -municode
 #
 
+man: nltool$(EXESUFFIX) nlwav$(EXESUFFIX)
+	@mkdir -p man
+	@mkdir -p html
+	help2man --include=nltool.help2man --no-info ./nltool$(EXESUFFIX) > man/nltool.1
+	groff -mandoc -Thtml man/nltool.1 > html/nltool.html
 
-doc: nltool$(EXESUFFIX)
+doc: nltool$(EXESUFFIX) nlwav$(EXESUFFIX)
 	./nltool$(EXESUFFIX) -c docheader > ../documentation/devsyn.dox.h
 	$(DOXYGEN) doxygen.conf
 

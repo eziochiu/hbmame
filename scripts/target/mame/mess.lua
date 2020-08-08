@@ -2569,7 +2569,6 @@ files {
 	MAME_DIR .. "src/mame/includes/hec2hrp.h",
 	MAME_DIR .. "src/mame/machine/hec2hrp.cpp",
 	MAME_DIR .. "src/mame/video/hec2hrp.cpp",
-	MAME_DIR .. "src/mame/drivers/interact.cpp",
 }
 
 createMESSProjects(_target, _subtarget, "heurikon")
@@ -4006,10 +4005,14 @@ files {
 	MAME_DIR .. "src/mame/machine/generalplus_gpl16250.h",
 	MAME_DIR .. "src/mame/drivers/generalplus_gpl32612.cpp",
 	MAME_DIR .. "src/mame/drivers/xavix.cpp",
+	MAME_DIR .. "src/mame/includes/xavix.h",
+	MAME_DIR .. "src/mame/drivers/xavix_2000.cpp",
+	MAME_DIR .. "src/mame/includes/xavix_2000.h",
+	MAME_DIR .. "src/mame/drivers/xavix_2002.cpp",
+	MAME_DIR .. "src/mame/includes/xavix_2002.h",
 	MAME_DIR .. "src/mame/video/xavix.cpp",
 	MAME_DIR .. "src/mame/machine/xavix.cpp",
 	MAME_DIR .. "src/mame/audio/xavix.cpp",
-	MAME_DIR .. "src/mame/includes/xavix.h",
 	MAME_DIR .. "src/mame/machine/xavix_mtrk_wheel.cpp",
 	MAME_DIR .. "src/mame/machine/xavix_mtrk_wheel.h",
 	MAME_DIR .. "src/mame/machine/xavix_madfb_ball.cpp",
