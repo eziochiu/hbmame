@@ -2,7 +2,7 @@
 // copyright-holders:hap
 /**********************************************************************
 
-    Videopac 40 cartridge emulation
+    Videopac 31/40 cartridge emulation
 
 **********************************************************************/
 
@@ -12,12 +12,12 @@
 #pragma once
 
 #include "slot.h"
-#include "rom.h"
 
 
 // ======================> o2_4in1_device
 
-class o2_4in1_device : public o2_rom_device
+class o2_4in1_device : public device_t,
+						public device_o2_cart_interface
 {
 public:
 	// construction/destruction
@@ -33,7 +33,7 @@ protected:
 	virtual u8 read_rom0c(offs_t offset) override { return m_rom[offset + 0xc00]; }
 
 	virtual void write_p1(u8 data) override { m_control = data; }
-	virtual void write_p2(u8 data) override { m_bank = data & 3; }
+	virtual void write_p2(u8 data) override { m_bank = data; }
 	virtual u8 io_read(offs_t offset) override;
 
 private:
