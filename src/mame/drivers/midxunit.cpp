@@ -292,9 +292,12 @@ void midxunit_state::midxunit(machine_config &config)
 	screen.set_screen_update("maincpu", FUNC(tms34010_device::tms340x0_ind16));
 	screen.set_palette(m_palette);
 
-	MIDWAY_SERIAL_PIC(config, m_midway_serial_pic, 0);
-	/* serial prefixes 419, 420 */
-	m_midway_serial_pic->set_upper(419);
+	PIC16C57(config, m_pic, 625000); // need to be verified
+	m_pic->read_a().set([this]() { return m_pic_command; });
+	m_pic->write_b().set([this](u8 data) { m_pic_data = data; });
+	m_pic->read_c().set([this]() { return m_pic_clk ^ 1; });
+	m_pic->write_c().set([this](u8 data) { m_pic_status = BIT(data, 1); });
+	// there also should be PIC16 reset line control, unknown at the moment
 
 	adc0848_device &adc(ADC0848(config, "adc"));
 	adc.intr_callback().set(FUNC(midxunit_state::adc_int_w)); // ADC INT passed through PLSI1032
@@ -328,14 +331,14 @@ ROM_START( revx )
 	ROM_LOAD16_BYTE( "revx_snd.8", 0xc00000, 0x80000, CRC(793a7eb5) SHA1(4b1f81b68f95cedf1b356ef362d1eb37acc74b16) )
 	ROM_LOAD16_BYTE( "revx_snd.9", 0xe00000, 0x80000, CRC(14ddbea1) SHA1(8dba9dc5529ea77c4312ea61f825bf9062ffc6c3) )
 
-	ROM_REGION16_LE( 0x200000, "maincpu", 0 )   /* 34020 code */
+	ROM_REGION32_LE( 0x200000, "maincpu", 0 )   /* 34020 code */
 	ROM_LOAD32_BYTE( "revx.51",  0x00000, 0x80000, CRC(9960ac7c) SHA1(441322f061d627ca7573f612f370a85794681d0f) )
 	ROM_LOAD32_BYTE( "revx.52",  0x00001, 0x80000, CRC(fbf55510) SHA1(8a5b0004ed09391fe37f0f501b979903d6ae4868) )
 	ROM_LOAD32_BYTE( "revx.53",  0x00002, 0x80000, CRC(a045b265) SHA1(b294d3a56e41f5ec4ab9bbcc0088833b1cab1879) )
 	ROM_LOAD32_BYTE( "revx.54",  0x00003, 0x80000, CRC(24471269) SHA1(262345bd147402100785459af422dafd1c562787) )
 
 	ROM_REGION( 0x2000, "pic", 0 )
-	ROM_LOAD( "revx_16c57.bin", 0x0000000, 0x2000, BAD_DUMP CRC(eb8a8649) SHA1(a1e1d0b7a5e9802e8f889eb7e719259656dc8133) ) // garbage, useless
+	ROM_LOAD( "revx_16c57.bin", 0x0000000, 0x2000, BAD_DUMP CRC(517e0110) SHA1(cd603c66794ff426dd2994fc1a0c0c8e6bbd864b) ) // manually restored
 
 	ROM_REGION( 0x1000000, "gfxrom", 0 )
 	ROM_LOAD32_BYTE( "revx.120", 0x0000000, 0x80000, CRC(523af1f0) SHA1(a67c0fd757e860fc1c1236945952a295b4d5df5a) )
@@ -395,14 +398,14 @@ ROM_START( revxp5 )
 	ROM_LOAD16_BYTE( "revx_snd.8", 0xc00000, 0x80000, CRC(793a7eb5) SHA1(4b1f81b68f95cedf1b356ef362d1eb37acc74b16) )
 	ROM_LOAD16_BYTE( "revx_snd.9", 0xe00000, 0x80000, CRC(14ddbea1) SHA1(8dba9dc5529ea77c4312ea61f825bf9062ffc6c3) )
 
-	ROM_REGION16_LE( 0x200000, "maincpu", 0 )   /* 34020 code */
+	ROM_REGION32_LE( 0x200000, "maincpu", 0 )   /* 34020 code */
 	ROM_LOAD32_BYTE( "revx_p5.51",  0x00000, 0x80000, CRC(f3877eee) SHA1(7a4fdce36edddd35308c107c992ce626a2c9eb8c) )
 	ROM_LOAD32_BYTE( "revx_p5.52",  0x00001, 0x80000, CRC(199a54d8) SHA1(45319437e11176d4926c00c95c372098203a32a3) )
 	ROM_LOAD32_BYTE( "revx_p5.53",  0x00002, 0x80000, CRC(fcfcf72a) SHA1(b471afb416e3d348b046b0b40f497d27b0afa470) )
 	ROM_LOAD32_BYTE( "revx_p5.54",  0x00003, 0x80000, CRC(fd684c31) SHA1(db3453792e4d9fc375297d030f0b3f9cc3cad925) )
 
 	ROM_REGION( 0x2000, "pic", 0 )
-	ROM_LOAD( "revx_16c57.bin", 0x0000000, 0x2000, BAD_DUMP CRC(eb8a8649) SHA1(a1e1d0b7a5e9802e8f889eb7e719259656dc8133) ) // garbage, useless
+	ROM_LOAD( "revx_16c57.bin", 0x0000000, 0x2000, BAD_DUMP CRC(517e0110) SHA1(cd603c66794ff426dd2994fc1a0c0c8e6bbd864b) ) // manually restored
 
 	ROM_REGION( 0x1000000, "gfxrom", 0 )
 	ROM_LOAD32_BYTE( "revx.120", 0x0000000, 0x80000, CRC(523af1f0) SHA1(a67c0fd757e860fc1c1236945952a295b4d5df5a) )
