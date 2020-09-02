@@ -1,7 +1,7 @@
-// license:GPL-2.0+
+// license:CC0
 // copyright-holders:Couriersud
 
-#include "netlist/devices/net_lib.h"
+#include "devices/net_lib.h"
 
 /*
  * 0 = Basic hack (Norton with just amplification, no voltage cutting)
@@ -410,13 +410,6 @@ NETLIST_END()
 
 //- Identifier: AN6551_SIL
 //- Title: AN6551 Dual Operational Amplifier
-//- Description: The AN6551 is a dual operational Amplifier with a
-//-   phase compensation circuit built-in. It is suitable for application to
-//-   various electronic circuits such as active filters and
-//-   audio pre-amplifiers
-//-
-//-   Features: Phase compensation circuit, High gain, low noise,
-//-   Output short-circuit protection, Two circuits symmetrically arranged in 9-pin SIL plastic package
 //- Pinalias: VCC,A.OUT,A-,A+,GND,B+,B-,B.OUT,VCC
 //- Package: SIL
 //- NamingConvention: Naming conventions follow Panasonic datasheet

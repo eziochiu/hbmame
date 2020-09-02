@@ -2170,6 +2170,7 @@ llander                         // 0345xx           no copyright notice
 llander1                        // 0345xx           no copyright notice
 llandert                        // (test)           no copyright notice
 meteorho                        // Hoei? bootleg    (c) 1980
+meteorbl                        // bootleg
 meteorite                       // Proel bootleg    (c) 1979
 meteorts                        // VCC bootleg      (c) 1979
 spcrocks                        // J.Estevez        (c) 1981
@@ -3138,7 +3139,8 @@ bagmans                         // (c) 1982 + Stern license
 bagmans2                        // (c) 1982 + Stern license
 bagnard                         // (c) 1982
 bagnarda                        // (c) 1982
-bagnardi                        // (c) 1982 + Itisa license
+bagnardi                        // (c) 1983 + Itisa license
+bagnardio                       // (c) 1982 + Itisa license
 botanic                         // (c) 1983
 botanic2                        // (c) 1983
 botanicf                        // (c) 1984
@@ -13014,6 +13016,7 @@ sudelan3
 sudelan
 carlecfg
 pvmilfin
+pvwwcas
 
 @source:electra.cpp
 avenger                         // (c) 1975 Electra
@@ -14228,6 +14231,7 @@ orbitron                        // (c) 1982 Signatron USA (Arcade Tv Game List -
 pacmanbl                        // bootleg
 pacmanbla                       // bootleg
 pacmanblb                       // bootleg
+pacmanblc                       // bootleg (Calfesa)
 pacmanblv                       // bootleg (Video Dens)
 pajaroes                        // bootleg
 phoenxp2                        // bootleg
@@ -14774,6 +14778,9 @@ superbwl                        // (c) 1982 Greyhound Electronics
 suprpokr                        // (c) 1986 Grayhound Electronics
 suprpokra                       // (c) 1986 Grayhound Electronics
 suprpokrb                       // (c) 1986 Grayhound Electronics
+
+@source:gem_rp.cpp
+rp200
 
 @source:generalplus_gpl_unknown.cpp
 pcp8718
@@ -18634,6 +18641,7 @@ junior                          //
 
 @source:juno106.cpp
 juno106                         //
+mks7                            //
 
 @source:juno6.cpp
 juno6                           //
@@ -22160,6 +22168,7 @@ sonic2mb                        // MegaDrive-based hack
 srmdb                           // MegaDrive-based hack
 ssf2mdb                         // MegaDrive-based hack
 topshoot                        // (c) 1995 Sun Mixing
+sbubsm                          // (c) 1996 Sun Mixing
 twinktmb                        // MegaDrive-based hack
 
 @source:megadriv_rad.cpp
@@ -22772,6 +22781,7 @@ crusnusa                        // (c) 1994 Midway
 crusnusa21                      // (c) 1994 Midway
 crusnusa40                      // (c) 1994 Midway
 crusnusa41                      // (c) 1994 Midway
+crusnusa44                      // (c) 1994 Midway
 crusnwld                        // (c) 1996 Midway
 crusnwld13                      // (c) 1996 Midway
 crusnwld17                      // (c) 1996 Midway
@@ -22963,8 +22973,10 @@ bublpong                        // bootleg on enhanced hardware
 missb2                          // bootleg on enhanced hardware
 
 @source:missbamby.cpp
-gwinner                         //
-msbamby                         // 198?
+gwinner                         // (c) 1983 Reben
+luckyplr                        // (c) 1981 Cirsa
+minisupf                        // (c) 1981 Cirsa
+msbamby                         // (c) 198? Automatics Pasqual
 
 @source:missile.cpp
 mcombat                         // bootleg
@@ -32106,6 +32118,11 @@ pinkjelly                       // From V.R. Technology VT SDK
 vtpinball                       // From V.R. Technology VT SDK
 vtsndtest                       // From V.R. Technology VT SDK
 vtboxing                        // From V.R. Technology VT SDK
+msiwwe
+msidd
+msimpac
+msisinv
+msimm2
 ablpinb
 mc_dgear
 dgun2500
@@ -32191,25 +32208,6 @@ sporzbx
 ablmini
 senwld
 zonefusn
-
-@source:vt1682.cpp
-ii8in1
-ii32in1
-zone7in1
-zone7in1p
-dance555
-miwi2_16
-miwi2_7
-intact89
-intg5410
-exsprt48
-itvg48
-xing48
-wowwg
-110dance
-lxts3
-unk1682
-njp60in1
 
 @source:newbrain.cpp
 newbrain                        //
@@ -32589,12 +32587,12 @@ octopus                         //
 odyssey                         // (c) Silicon Gaming.
 
 @source:odyssey2.cpp
-g7400                           // 1983 Videopac Plus G7400
 jopac                           // 1983 Jopac JO7400
 odyssey2                        // Magnavox Odyssey 2 - 1978-1983
 odyssey3                        // Magnavox Odyssey 3 / Command Center (prototype)
 videopac                        // 1979 Videopac G7000
 videopacf                       // 1979 Videopac C52
+videopacp                       // 1983 Videopac Plus G7400
 
 @source:offtwall.cpp
 offtwall                        // 136090           (c) 1991
@@ -34084,9 +34082,12 @@ brod                            //
 kok                             //
 
 @source:photoply.cpp
+photoply98sp                    // (c) 1998 Funworld
 photoply99sp                    // (c) 1999 Funworld
-photoply                        //
-photoply2k4                     //
+photoply2k                      // (c) 2000 Funworld
+photoply2ksp                    // (c) 2000 Funworld
+photoply2k1it                   // (c) 2001 Funworld
+photoply2k4                     // (c) 2004 Funworld
 
 @source:phunsy.cpp
 phunsy                          //
@@ -35388,6 +35389,9 @@ sc88vl                          //
 @source:roland_tb303.cpp
 tb303                           // Roland
 
+@source:roland_tr505.cpp
+tr505                           //
+
 @source:roland_tr606.cpp
 tr606                           // Roland
 
@@ -35431,6 +35435,7 @@ route16b                        // (c) 1981 Tehkan/Sun + Centuri license
 route16bl                       // bootleg
 route16c                        // (c) 1981 Tehkan/Sun + Centuri license
 routex                          // bootleg
+routexa                         // bootleg
 spacecho                        // bootleg
 spacecho2                       // bootleg
 speakhlp                        // bootleg
@@ -37696,6 +37701,7 @@ kinstb                          // bootleg
 rushbets                        // bootleg
 sblast2b                        // bootleg
 venom                           // bootleg
+wldgunsb                        // bootleg
 
 @source:snk.cpp
 alphamis                        // (c) 1985
@@ -38026,6 +38032,7 @@ rad_skatp                       //
 rad_crik                        //
 rad_fb2                         //
 mattelcs                        //
+hotwhl2p
 comil                           //
 abltenni                        //
 totspies
@@ -38167,6 +38174,8 @@ lexifit
 marc101
 marc250
 guitrbus
+ddmsup
+ddmmeg12
 
 @source:spg2xx_zone.cpp
 wirels60                        // Wireless 60
@@ -39699,7 +39708,8 @@ tkdenshoa                       // (c) 1996 Tecmo
 tecnbras                        //
 
 @source:tecnodar.cpp
-tecnodar                        //
+tecnodar                        // (c) 1991 Automatics Pasqual
+tecnodargr                      // (c) 1991 Automatics Pasqual / Recreativos G.R.
 
 @source:tehkanwc.cpp
 gridiron                        // (c) 1985 Tehkan
@@ -40277,6 +40287,7 @@ bgareggabla                     // hack
 bgareggacn                      // (c) 1996 Raizing/8ing
 bgareggahk                      // (c) 1996 Raizing/8ing
 bgaregganv                      // (c) 1996 Raizing/8ing
+bgareggat                       // (c) 1996 Raizing/8ing
 bgareggat2                      // (c) 1996 Raizing/8ing
 bgareggatw                      // (c) 1996 Raizing/8ing
 dogyuun                         // TP-022 (c) 1992 Toaplan
@@ -40418,6 +40429,7 @@ shtridera                       // (c) 1984 Seibu Kaihatsu
 shtriderb                       // bootleg
 travrusa                        // (c) 1983
 travrusab                       // (c) 1983 I.P. (bootleg)
+travrusab2                      //
 
 @source:tricep.cpp
 tricep                          //
@@ -41215,6 +41227,10 @@ volfiedo                        // C04 (c) 1989 Taito Corporation Japan (World)
 volfiedu                        // C04 (c) 1989 Taito America Corporation (US)
 volfieduo                       // C04 (c) 1989 Taito America Corporation (US)
 
+@source:votrhv.cpp
+hc110                           // 1978 Votrax/Phonic Mirror HandiVoice HC-110
+hc120                           // 1978 Votrax/Phonic Mirror HandiVoice HC-120
+
 @source:votrpss.cpp
 votrpss                         // 1982 Votrax Personal Speech System
 
@@ -41303,6 +41319,28 @@ vstennisa                       // (c) 1984 Nintendo Co., Ltd. / Nintendo of Ame
 vstennisb                       // (c) 1984 Nintendo Co., Ltd. / Nintendo of America
 vstetris                        // (c) 1988 Atari
 wrecking                        // (c) 1984 Nintendo
+
+@source:vt_unknown.cpp
+dgun2572
+
+@source:vt1682.cpp
+ii8in1
+ii32in1
+zone7in1
+zone7in1p
+dance555
+miwi2_16
+miwi2_7
+intact89
+intg5410
+exsprt48
+itvg48
+xing48
+wowwg
+110dance
+lxts3
+unk1682
+njp60in1
 
 @source:vt52.cpp
 vt52                            // 1975 Digital Equipment Corporation
@@ -41838,7 +41876,7 @@ joust                           // (c) 1982
 joust2                          // (c) 1986
 joust2r1                        // (c) 1986
 joustr                          // (c) 1982
-joustwr                         // (c) 1982
+jousty                          // (c) 1982
 lottofun                        // (c) 1987 H.A.R. Management
 mayday                          // bootleg
 maydaya                         // bootleg
@@ -42640,6 +42678,9 @@ zerozone                        // (c) 1993 Comad
 
 @source:zexall.cpp
 zexall                          // zexall z80 test suite with kevtris' preloader/serial interface at 0000-00ff
+
+@source:zeebo_qualcomm_adreno130.cpp
+zeebo
 
 @source:zms8085.cpp
 zephyr                          //
