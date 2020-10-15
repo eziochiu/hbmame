@@ -1,32 +1,151 @@
 ﻿What's new in HBMAME
 ====================
 
-2020-09-30 0.225
+2020-10-28 0.226
+
+- Metal Slug 1,2,3,4,5 and X remix has been massively updated
 
 New Games
 ---------------------------------
+- [kof2k2s120]          Kof2002 (Combo Simplified Edition 2020-09-18)
+- [kof97s210]           Kof'97 (Angry Athena-Snake Slayer War Original 2020-09-16)
+- [kof97s211]           Kof'97 (Angry Athena-Snake Slayer War Simplified 2020-09-16)
+- [kof97s212]           Kof'97 (Chaos Edition 1.9 Original 2020-08-26)
+- [kof97s213]           Kof'97 (Chaos Edition 1.9 Simplified 2020-08-26)
+- [kof97s214]           Kof'97 (Mad Dragon Edition Original 2020-09-25)
+- [kof97s215]           Kof'97 (Mad Dragon Edition Simplified 2020-09-30)
+- [kof97s216]           Kof'97 (Imitation 13 Flash Version Original 2020-09-30)
+- [kof97s217]           Kof'97 (Imitation 13 Flash Version Simplified 2020-09-30)
+- [kof99s106]           Kof'99 (Imitation 14 BC Version (AC open BC) 2020-09-30)
+- [kov2h29]             Knights of Valour 2 (Green Edition 2020-09-16)
+- [kov2p204s106]        Knights of Valour 2 Plus (God of War Musou 2020-09-14)
+- [kov2p204s107]        Knights of Valour 2 Plus (Mingyue Huacai 2019-03-21)
+- [kov2p204s108]        Knights of Valour 2 Plus (Tianhuo Mingming 2019-10-17)
+- [kovpluss381]         Knights of Valour Plus 2012 (Warriors Classic Edition 2020-09-17)
+- [kovpluss382]         Knights of Valour Plus 2012 (World Unification 2020-09-20)
+- [kovsho191]           Knights of Valour Super Heroes Plus (Random Edition 2020-09-17)
+- [kovsho192]           Knights of Valour Super Heroes Plus (Zhao Yun Dead World Edition 2020-09-19)
+- [mslug4hh29]          Metal Slug 4 (Mummy Edition 2020-08-31)
+- [mslug5dh81]          Metal Slug 5 (Final Edition 2020-09-19)
+- [proneon]             Neon plan
+- [sailormnts06]        Pretty Soldier Sailor Moon (Rabbit Edition 2020-09-17)
+- [sengoku3s15]         Sengoku 3 (Full Attack Enhanced Edition 2020-09-18)
+- [theglad100s03]       The Gladiator (Full Attack Enhanced Edition 2020 2020-09-18)
+- [tk2h163]             Tenchi wo Kurau II (Master Edition Update 2020-09-13)
+- [tk2h164]             Tenchi wo Kurau II (Master Edition Revised 2020-09-28)
+
+
+
+2020-09-30 0.225
+
+Converted external artwork (gnw_bride.zip, gnw_squeeze.zip, monaco.zip)
+to latest code, and included them in the download package.
+
+
+New Games
+---------------------------------
+- [armwars02]           Armored Warriors (Full Attack Edition 2020-08-30)
+- [avspus04]            Alien vs. Predator (Ultimate Evolution Edition 2020-09-01)
+- [avspus05]            Alien vs. Predator (Modified Edition 2020-08-30)
 - [captcomms104]        Captain Commando (Elite Edition Update 2020-08-12)
 - [captcomms105]        Captain Commando (Nightmare Edition Update 2020-08-12)
 - [captcomms106]        Captain Commando (Warlord Version 2020-08-12)
+- [ddsomjs02]           Dungeons & Dragons: Shadow over Mystara (Full Attack Edition 2020-08-31)
+- [ddtods01]            Dungeons & Dragons: Tower of Doom (Full Attack Edition 2020-08-31)
 - [dinos277]            Cadillacs and Dinosaurs (Demon God Dance 2020-08-23)
 - [dinos278]            Cadillacs and Dinosaurs (God of War Edition Update 2020-07-30)
+- [dkongitd]            Donkey Kong In The Dark v1.00
 - [grdianss18]          Guardians (Warriors Edition 2020-04-01)
 - [kof2k2s117]          Kof2002 (PlayStation 2 Original 2018-04-17)
 - [kof2k2s118]          Kof2002 (PlayStation 2 Extremely Simplified 2020-08-24
+- [kof2k2s119]          Kof2002 (PlayStation 2 Final Edition BC 2020-08-24)
 - [kof97s207]           Kof'97 (Chaos Edition 1.7 Original 2020-08-25)
 - [kof97s208]           Kof'97 (Chaos Edition 1.7 Simplified 2020-08-25)
+- [kof97s209]           Kof'97 (Full Character Special Skills BC Version 2020-05-25)
 - [kof98hh136]          Kof'98 (Kingdom Protoss Terminator Edition 2020-08-19)
 - [kof99s104]           Kof'99 (Imitation PS Enhanced Edition Original 2020-08-24)
 - [kof99s105]           Kof'99 (Imitation PS Enhanced Edition Simplified 2020-08-24)
 - [kov2h27]             Knights of Valour 2 (Green Edition 2020-08-23)
 - [kov2h28]             Knights of Valour 2 (1V4 Edition 2020-07-02)
 - [kov2p204s104]        Knights of Valour 2 Plus (Martial Universe 2020-08-19)
-- [kov2p204s105]        Knights ofValour 2 Plus (Phoenix Dance Dragon Song 2020-08-05)
+- [kov2p204s105]        Knights of Valour 2 Plus (Phoenix Dance Dragon Song 2020-08-05)
 - [kovpluss378]         Knights of Valour Plus 2012 (You Ju Restored Version 2020-08-15)
-- [ms6s14]              Metal Slug 6 (Fatty War 2020-08-25)  
+- [kovpluss379]         Knights of Valour Plus 2012 (Warriors Edition 2020-09-10)
+- [kovpluss380]         Knights of Valour Plus 2012 (Heroes Dance 2020 2020-09-10)
+- [nsmb]                Neo Super Mario Bros Demo!
+- [mslug2ps24]          Metal Slug 2 (Crazy Fire Edition 2020-09-05)[NOT WORKING]
 - [mslug3h64]           Metal Slug 3 (Ultimate Simplified Edition 2020-08-25)
+- [mslug3h65]           Metal Slug 3 (Hybrid Bullets Version 2020-09-12)
+- [mslug3h66]           Metal Slug 3 (Crazy Zombie 2020-09-12)[NOT WORKING]
+- [mslug3h67]           Metal Slug 3 (Crazy Mummy 2020-09-05)[NOT WORKING]
+- [mslug3h68]           Metal Slug 3 (The Last Warhead 2020-09-05)
+- [mslug3h69]           Metal Slug 3 (Crazy Fire Edition 2020-09-03)
+- [mslug3esra01]        Metal Slug 3 (Enemy Soldier Reset #1 2020-09-05)(Multi-Function Version)
+- [mslug3esra02]        Metal Slug 3 (Enemy Soldier Reset #1 2020-09-05)(Ghost Wu Zuoma Version)[NOT WORKING]
+- [mslug3esra03]        Metal Slug 3 (Enemy Soldier Reset #1 2020-09-05)(Summon Mount Edition)
+- [mslug3esra04]        Metal Slug 3 (Enemy Soldier Reset #1 2020-09-05)(Store Version)
+- [mslug3esra05]        Metal Slug 3 (Enemy Soldier Reset #1 2020-09-05)(Green Blue Version)
+- [mslug3esra06]        Metal Slug 3 (Enemy Soldier Reset #1 2020-09-05)(SE Special Edition)
+- [mslug3esra07]        Metal Slug 3 (Enemy Soldier Reset #1 2020-09-05)(Burst Enhanced Edition)
+- [mslug3esra08]        Metal Slug 3 (Enemy Soldier Reset #1 2020-09-05)(Zombie Players Mode Edition)
+- [mslug3esra09]        Metal Slug 3 (Enemy Soldier Reset #1 2020-09-05)(Mummy Players Mode Edition)
+- [mslug3esra10]        Metal Slug 3 (Enemy Soldier Reset #1 2020-09-05)(Crazy Fire Version V1.1)
+- [mslug3esra11]        Metal Slug 3 (Enemy Soldier Reset #1 2020-09-05)(Super D version)
+- [mslug3esra12]        Metal Slug 3 (Enemy Soldier Reset #1 2020-09-05)(Hybrid Bullets Version)
+- [mslug3esrb01]        Metal Slug 3 (Enemy Soldier Reset #2 2020-09-04)(Multi-Function Version)
+- [mslug3esrb02]        Metal Slug 3 (Enemy Soldier Reset #2 2020-09-04)(Ghost Wu Zuoma Version)[NOT WORKING]
+- [mslug3esrb03]        Metal Slug 3 (Enemy Soldier Reset #2 2020-09-04)(Summon Mount Edition)
+- [mslug3esrb04]        Metal Slug 3 (Enemy Soldier Reset #2 2020-09-04)(Store Version)
+- [mslug3esrb05]        Metal Slug 3 (Enemy Soldier Reset #2 2020-09-04)(Green Blue Version)
+- [mslug3esrb06]        Metal Slug 3 (Enemy Soldier Reset #2 2020-09-04)(SE Special Edition)
+- [mslug3esrb07]        Metal Slug 3 (Enemy Soldier Reset #2 2020-09-04)(Burst Enhanced Edition)
+- [mslug3esrb08]        Metal Slug 3 (Enemy Soldier Reset #2 2020-09-04)(Zombie Players Mode Edition)
+- [mslug3esrb09]        Metal Slug 3 (Enemy Soldier Reset #2 2020-09-04)(Mummy Players Mode Edition)
+- [mslug3esrb10]        Metal Slug 3 (Enemy Soldier Reset #2 2020-09-04)(Crazy Fire Version V1.1)
+- [mslug3esrb11]        Metal Slug 3 (Enemy Soldier Reset #2 2020-09-04)(Super D version)
+- [mslug3esrb12]        Metal Slug 3 (Enemy Soldier Reset #2 2020-09-04)(Hybrid Bullets Version)
+- [mslug3esrc01]        Metal Slug 3 (The Last Warhead 2020-09-05)(Multi-Function Version)
+- [mslug3esrc02]        Metal Slug 3 (The Last Warhead 2020-09-05)(Ghost Wu Zuoma Version)[NOT WORKING]
+- [mslug3esrc03]        Metal Slug 3 (The Last Warhead 2020-09-05)(Summon Mount Edition)
+- [mslug3esrc04]        Metal Slug 3 (The Last Warhead 2020-09-05)(Store Version)
+- [mslug3esrc05]        Metal Slug 3 (The Last Warhead 2020-09-05)(Green Blue Version)
+- [mslug3esrc06]        Metal Slug 3 (The Last Warhead 2020-09-05)(SE Special Edition)
+- [mslug3esrc07]        Metal Slug 3 (The Last Warhead 2020-09-05)(Burst Enhanced Edition)
+- [mslug3esrc08]        Metal Slug 3 (The Last Warhead 2020-09-05)(Zombie Players Mode Edition)
+- [mslug3esrc09]        Metal Slug 3 (The Last Warhead 2020-09-05)(Mummy Players Mode Edition)
+- [mslug3esrc10]        Metal Slug 3 (The Last Warhead 2020-09-05)(Crazy Fire Version V1.1)
+- [mslug3esrc11]        Metal Slug 3 (The Last Warhead 2020-09-05)(Super D version)
+- [mslug3esrc12]        Metal Slug 3 (The Last Warhead 2020-09-05)(Hybrid Bullets Version)
+- [mslug5dh50]          Metal Slug 5 (Stone Tortoise Edition 2020-09-04)
+- [mslug5dh51]          Metal Slug 5 (Hybrid Bullets Version 2020-09-14)
+- [mslug4hh61]          Metal Slug 4 (Last Bullet 2017-07-27)
+- [mslug4hh62]          Metal Slug 4 (Last Bullet Enhanced Edition 2017-11-02)
+- [mslug4lwp02]         Metal Slug 4 (Last Bullet Multi-Function 2017-07-27 (Prototype))
+- [mslug5dh71]          Metal Slug 5 (Final Edition 2020-09-05)
+- [mslug5dh72]          Metal Slug 5 (Crazy Fire Edition 2020-09-02)[NOT WORKING]
 - [mslug5dh74]          Metal Slug 5 (Ultimate Simplified Edition 2020-08-01)
+- [mslug5dh75]          Metal Slug 5 (Stone Tortoise Edition 2020-08-29)
+- [mslug5dh76]          Metal Slug 5 (Fatty War 2020-09-02)
+- [mslug5dh77]          Metal Slug 5 (Remake 2 2020-09-03)
+- [mslug6h07]           Metal Slug 6 (Fatty War 2020-08-25)
+- [mslug6h08]           Metal Slug 6 (Crazy Fire Edición 2020-09-03)
+- [mslug6hc01]          Metal Slug 6 (The Last Warhead 2020-09-05)
+- [mslug6hc02]          Metal Slug 6 (The Last Warhead 2020-09-05)(Summon Mount Edition)[NOT WORKING]
+- [mslug6hc03]          Metal Slug 6 (The Last Warhead 2020-09-05)(Burst Enhanced Edition)
+- [mslug6hc04]          Metal Slug 6 (The Last Warhead 2020-09-05)(Hybrid Bullets Version)
+- [mslug6hd01]          Metal Slug 6 (Enemy Soldier Reset #2 2020-09-04)
+- [mslug6hd02]          Metal Slug 6 (Enemy Soldier Reset #2 2020-09-04)(Summon Mount Edition)[NOT WORKING]
+- [mslug6hd03]          Metal Slug 6 (Enemy Soldier Reset #2 2020-09-04)(Burst Enhanced Edition)
+- [mslug6hd04]          Metal Slug 6 (Enemy Soldier Reset #2 2020-09-04)(Hybrid Bullets Version)
+- [mslug6he01]          Metal Slug 6 (Enemy Soldier Reset #1 2020-09-05)
+- [mslug6he02]          Metal Slug 6 (Enemy Soldier Reset #1 2020-09-05)(Summon Mount Edition)[NOT WORKING]
+- [mslug6he03]          Metal Slug 6 (Enemy Soldier Reset #1 2020-09-05)(Burst Enhanced Edition)
+- [mslug6he04]          Metal Slug 6 (Enemy Soldier Reset #1 2020-09-05)(Hybrid Bullets Version)
+- [punishers11]         The Punisher (Warriors Fighting Dragon Edition 2020-09-01)
+- [theglad100s02]       The Gladiator (Full Attack Enhanced Edition 2020 2020-09-06)
+- [umk3uc20200915]      Ultimate Mortal Kombat 3 (Ultimate Cup Edition 2020-09-15)
 - [tk2h162]             Tenchi wo Kurau II (Master Edition Update 2020-08-11)
+- [zeroteamss02]        Zero Team Selection (Yanshen Edition 2020-08-27)
 
 
 

@@ -258,6 +258,7 @@ cops.cpp
 copsnrob.cpp
 corona.cpp
 cosmic.cpp
+cowtipping.cpp
 cps1.cpp
 cps1bl_5205.cpp
 cps1bl_pic.cpp
@@ -536,6 +537,7 @@ hitme.cpp
 hitpoker.cpp
 hnayayoi.cpp
 hng64.cpp
+hobbyplay.cpp
 holeland.cpp
 homedata.cpp
 homerun.cpp
@@ -723,6 +725,7 @@ marywu.cpp
 mastboy.cpp
 mastboyo.cpp
 matmania.cpp
+matrix.cpp
 maxaflex.cpp
 maygay1bsw.cpp
 maygayep.cpp
