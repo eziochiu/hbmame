@@ -676,6 +676,7 @@ captcomms103
 captcomms104
 captcomms105
 captcomms106
+captcomms107
 dinos01
 dinos02
 dinos03
@@ -937,6 +938,9 @@ dinos275
 dinos276
 dinos277
 dinos278
+dinos279
+dinos280
+dinos281
 ffights01
 ffights02
 ffightj2s01
@@ -1508,6 +1512,7 @@ dkongbcc				// Jeff's Rom Hacks
 dkongex					// Jeff's Hack with Foundry Level
 dkongf
 dkongst
+dkongst2
 dkongss
 dkongp					// Fix for level 22 kill screen by Don Hodges
 dkongpac				// Tim Appleton - Donkey Kong with Pacman graphics
@@ -2244,6 +2249,8 @@ kof97s214
 kof97s215
 kof97s216
 kof97s217
+kof97s218
+kof97s219
 kof97hx01
 kof97hx02
 kof97hx03
@@ -2883,6 +2890,7 @@ kof98hh133
 kof98hh134
 kof98hh135
 kof98hh136
+kof98hh137
 kof98xz01
 kof98xz02
 kof98xz03
@@ -4658,6 +4666,14 @@ mslug3rmf02
 mslug3rmf03
 mslug3rmf04
 mslug3rmf05
+mslug3rmg01
+mslug3rmg02
+mslug3rmg03
+mslug3rmg04
+mslug3rmh01
+mslug3rmh02
+mslug3rmh03
+mslug3rmh04
 mslug6h01
 mslug6h02
 mslug6h03
@@ -5856,13 +5872,14 @@ neotest		// BEY
 neothund	// Sebastian Mihai
 neotrisd1
 neotrisd2
+neotrisd3
 ngem2k
 ngftdemo	// CeL
 ngmontst
 ngtd2
 ngtetris
 ngym2610
-nsmb
+nsmbd			// unplayable demo
 nyan
 nyana
 pcmademo	// 2015 freem
@@ -5870,7 +5887,6 @@ pcmbdemo	// 2015 freem
 poknight	/* 2003 (c) 200? JMK */
 poknightcd
 poknightfr
-proneon
 //raroggame
 rci			/* Robocop intro */
 samantha
@@ -6154,6 +6170,7 @@ doubledrs05
 doubledrs06
 doubledrs07
 doubledrs08
+doubledrs09
 
 @source:nggaroup.cpp
 garoub
@@ -7259,6 +7276,7 @@ kov2p204s105
 kov2p204s106
 kov2p204s107
 kov2p204s108
+kov2p204s109
 kov2h01
 kov2h02
 kov2h03
@@ -7288,6 +7306,7 @@ kov2h26
 kov2h27
 kov2h28
 kov2h29
+kov2h30
 kovpluss01
 kovpluss02  // Unstable game in the emulator (ingame crash)
 kovpluss03
@@ -7667,6 +7686,10 @@ kovpluss379
 kovpluss380
 kovpluss381
 kovpluss382
+kovpluss383
+kovpluss384
+kovpluss385
+kovpluss386
 kovplusas01
 kovshs01
 kovshs02
@@ -8164,6 +8187,7 @@ olds100ass174
 olds100ass175
 olds100ass176
 olds100ass177
+olds100ass178
 oldsplus01
 oldsplus02
 oldsplus03

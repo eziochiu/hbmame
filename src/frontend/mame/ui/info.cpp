@@ -85,7 +85,7 @@ machine_static_info::machine_static_info(const ui_options &options, machine_conf
 	for (device_t &device : device_iterator(config.root_device()))
 	{
 		// the "no sound hardware" warning doesn't make sense when you plug in a sound card
-		if (dynamic_cast<device_sound_interface *>(&device))
+//		if (dynamic_cast<device_sound_interface *>(&device))  // MESSUI
 			m_flags &= ~::machine_flags::NO_SOUND_HW;
 
 		// build overall emulation status
@@ -93,10 +93,15 @@ machine_static_info::machine_static_info(const ui_options &options, machine_conf
 		m_imperfect_features |= device.type().imperfect_features();
 
 		// look for BIOS options
-		for (tiny_rom_entry const *rom = device.rom_region(); !m_has_bioses && rom && !ROMENTRY_ISEND(rom); ++rom)
+		device_t const *const parent(device.owner());
+		device_slot_interface const *const slot(dynamic_cast<device_slot_interface const *>(parent));
+		if (!parent || (slot && (slot->get_card_device() == &device)))
 		{
-			if (ROMENTRY_ISSYSTEM_BIOS(rom))
-				m_has_bioses = true;
+			for (tiny_rom_entry const *rom = device.rom_region(); !m_has_bioses && rom && !ROMENTRY_ISEND(rom); ++rom)
+			{
+				if (ROMENTRY_ISSYSTEM_BIOS(rom))
+					m_has_bioses = true;
+			}
 		}
 
 		// if we don't have ports passed in, build here
